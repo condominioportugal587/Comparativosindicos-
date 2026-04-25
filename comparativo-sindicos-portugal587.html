@@ -1,0 +1,1438 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Comparativo de Propostas — Portugal 587</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+  :root {
+    --bg: #0D1117;
+    --bg-card: rgba(255,255,255,0.05);
+    --bg-card-hover: rgba(255,255,255,0.08);
+    --border: rgba(255,255,255,0.08);
+    --border-hover: rgba(255,255,255,0.18);
+    --text: #E6EDF3;
+    --text-muted: #8B949E;
+    --text-dim: #484F58;
+    --primary: #2563EB;
+    --primary-light: #3B82F6;
+    --green: #16A34A;
+    --green-light: #22C55E;
+    --yellow: #CA8A04;
+    --yellow-light: #EAB308;
+    --red: #DC2626;
+    --red-light: #EF4444;
+    --orange: #EA580C;
+    --orange-light: #F97316;
+    --purple: #7C3AED;
+    --purple-light: #A855F7;
+    --teal: #0D9488;
+    --teal-light: #14B8A6;
+
+    /* Cores por empresa */
+    --tech: #0EA5E9;
+    --sp: #8B5CF6;
+    --gf: #16A34A;
+    --adv: #EA580C;
+    --adv-pro: #2563EB;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ===== HEADER ===== */
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(13,17,23,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 16px;
+  }
+  .header-inner {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .header-title { font-size: 14px; font-weight: 700; color: var(--text); }
+  .header-sub { font-size: 11px; color: var(--text-muted); }
+
+  /* ===== NAV TABS ===== */
+  .nav-tabs {
+    display: flex;
+    overflow-x: auto;
+    gap: 4px;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(13,17,23,0.9);
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    position: sticky;
+    top: 57px;
+    z-index: 99;
+    backdrop-filter: blur(12px);
+  }
+  .nav-tabs::-webkit-scrollbar { display: none; }
+  .nav-tab {
+    flex-shrink: 0;
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text-muted);
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+  }
+  .nav-tab:hover { border-color: var(--border-hover); color: var(--text); }
+  .nav-tab.active {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+  }
+
+  /* ===== SECTIONS ===== */
+  section { display: none; padding: 16px; max-width: 700px; margin: 0 auto; }
+  section.active { display: block; }
+
+  /* ===== CARDS ===== */
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+  .card-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card-sub {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+  }
+
+  /* ===== COMPANY BADGE ===== */
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  .badge-tech { background: rgba(14,165,233,0.15); color: var(--tech); }
+  .badge-sp { background: rgba(139,92,246,0.15); color: var(--sp); }
+  .badge-gf { background: rgba(22,163,74,0.15); color: var(--gf); }
+  .badge-adv { background: rgba(234,88,12,0.15); color: var(--adv); }
+  .badge-adv-pro { background: rgba(37,99,235,0.15); color: var(--adv-pro); }
+
+  /* ===== SCORE STARS ===== */
+  .score-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    gap: 8px;
+  }
+  .score-row:last-child { border-bottom: none; }
+  .score-label { font-size: 13px; color: var(--text); flex: 1; }
+  .score-dots {
+    display: flex;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--border);
+  }
+  .dot.filled { background: var(--green-light); }
+  .dot.half { background: var(--yellow-light); }
+  .dot.low { background: var(--red-light); }
+  .score-val {
+    font-size: 12px;
+    font-weight: 700;
+    min-width: 28px;
+    text-align: right;
+    color: var(--text-muted);
+  }
+
+  /* ===== RATING PILLS ===== */
+  .rating {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .rating-5 { background: rgba(22,163,74,0.15); color: var(--green-light); }
+  .rating-4 { background: rgba(20,184,166,0.15); color: var(--teal-light); }
+  .rating-3 { background: rgba(234,179,8,0.15); color: var(--yellow-light); }
+  .rating-2 { background: rgba(249,115,22,0.15); color: var(--orange-light); }
+  .rating-1 { background: rgba(239,68,68,0.15); color: var(--red-light); }
+
+  /* ===== DETAIL TABLE ===== */
+  .detail-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .detail-table th {
+    text-align: left;
+    color: var(--text-muted);
+    font-weight: 500;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .detail-table td {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  .detail-table td:first-child { color: var(--text-muted); width: 38%; padding-right: 10px; }
+
+  /* ===== CATEGORY SECTION ===== */
+  .cat-header {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: 20px 0 10px;
+    padding-left: 10px;
+    border-left: 3px solid var(--primary);
+  }
+
+  /* ===== COMPARISON ROW ===== */
+  .comp-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin-bottom: 8px;
+  }
+  .comp-item-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    gap: 8px;
+  }
+  .comp-item-label { font-size: 13px; font-weight: 600; }
+  .comp-row { display: flex; align-items: flex-start; gap: 8px; padding: 4px 0; }
+  .comp-co { width: 90px; flex-shrink: 0; }
+  .comp-val { font-size: 12px; color: var(--text); flex: 1; line-height: 1.5; }
+  .comp-rating { flex-shrink: 0; }
+
+  /* ===== ALERT BANNER ===== */
+  .alert {
+    padding: 12px 14px;
+    border-radius: 10px;
+    margin-bottom: 14px;
+    font-size: 12px;
+    line-height: 1.6;
+    border-left: 3px solid;
+  }
+  .alert-yellow { background: rgba(234,179,8,0.08); border-color: var(--yellow-light); color: var(--text-muted); }
+  .alert-blue { background: rgba(59,130,246,0.08); border-color: var(--primary-light); color: var(--text-muted); }
+  .alert strong { color: var(--text); }
+
+  /* ===== PRICE TABLE ===== */
+  .price-bar { margin-bottom: 10px; }
+  .price-label { display: flex; justify-content: space-between; margin-bottom: 4px; }
+  .price-label span { font-size: 12px; }
+  .price-label strong { font-size: 13px; font-weight: 700; }
+  .price-track {
+    height: 8px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .price-fill {
+    height: 100%;
+    border-radius: 6px;
+    transition: width 0.6s ease;
+  }
+
+  /* ===== OVERALL CARD ===== */
+  .overall-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 16px;
+    margin-bottom: 12px;
+    position: relative;
+    overflow: hidden;
+  }
+  .overall-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .overall-card.tech::before { background: var(--tech); }
+  .overall-card.sp::before { background: var(--sp); }
+  .overall-card.gf::before { background: var(--gf); }
+  .overall-card.adv::before { background: var(--adv); }
+  .overall-card.adv-pro::before { background: var(--adv-pro); }
+  .overall-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+  .overall-name { font-size: 16px; font-weight: 800; }
+  .overall-score { font-size: 32px; font-weight: 900; line-height: 1; }
+  .overall-score-label { font-size: 10px; color: var(--text-muted); text-align: right; }
+  .overall-pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
+  .pros, .cons { font-size: 11px; line-height: 1.7; }
+  .pros strong, .cons strong { font-size: 11px; font-weight: 700; display: block; margin-bottom: 2px; }
+  .pros strong { color: var(--green-light); }
+  .cons strong { color: var(--red-light); }
+  .mini-bar { display: flex; gap: 4px; margin-top: 10px; }
+  .mini-seg { height: 6px; flex: 1; border-radius: 3px; }
+  .verdict {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+    line-height: 1.6;
+  }
+  .verdict strong { color: var(--text); }
+
+  /* ===== STAR SCORE DISPLAY ===== */
+  .star { color: var(--yellow-light); font-size: 13px; }
+  .star-off { color: var(--text-dim); font-size: 13px; }
+
+  /* ===== HIGHLIGHT BOX ===== */
+  .highlight-box {
+    background: rgba(37,99,235,0.08);
+    border: 1px solid rgba(59,130,246,0.2);
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin-bottom: 14px;
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+  .highlight-box strong { color: var(--primary-light); }
+
+  /* ===== SECTION TITLE ===== */
+  .section-title {
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 4px;
+    line-height: 1.3;
+  }
+  .section-desc { font-size: 13px; color: var(--text-muted); margin-bottom: 16px; line-height: 1.6; }
+
+  /* ===== SEPARATOR ===== */
+  .sep { height: 1px; background: var(--border); margin: 16px 0; }
+
+  /* ===== ACCORDION ===== */
+  .acc-item { border: 1px solid var(--border); border-radius: 10px; margin-bottom: 8px; overflow: hidden; }
+  .acc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 14px;
+    cursor: pointer;
+    background: var(--bg-card);
+    user-select: none;
+    transition: background 0.2s;
+  }
+  .acc-header:hover { background: var(--bg-card-hover); }
+  .acc-header-left { display: flex; align-items: center; gap: 8px; }
+  .acc-title { font-size: 13px; font-weight: 600; }
+  .acc-arrow { font-size: 12px; color: var(--text-muted); transition: transform 0.2s; }
+  .acc-item.open .acc-arrow { transform: rotate(180deg); }
+  .acc-body { display: none; padding: 12px 14px; border-top: 1px solid var(--border); background: rgba(0,0,0,0.15); }
+  .acc-item.open .acc-body { display: block; }
+
+  /* ===== PILL LEGEND ===== */
+  .legend { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+  .legend-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--text-muted); }
+  .legend-dot { width: 8px; height: 8px; border-radius: 50%; }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 400px) {
+    .overall-pros-cons { grid-template-columns: 1fr; }
+  }
+
+  /* ===== OVERVIEW LIST (single column) ===== */
+  .overview-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 12px; }
+  .overview-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .overview-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    border-radius: 12px 12px 0 0;
+  }
+  .overview-card.tech::before { background: var(--tech); }
+  .overview-card.sp::before { background: var(--sp); }
+  .overview-card.gf::before { background: var(--gf); }
+  .overview-card.adv::before { background: var(--adv); }
+  .overview-card.adv-pro::before { background: var(--adv-pro); }
+  .overview-card:hover { border-color: var(--border-hover); background: var(--bg-card-hover); }
+  .ov-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+  .ov-name { font-size: 14px; font-weight: 700; margin-bottom: 2px; }
+  .ov-type { font-size: 11px; color: var(--text-muted); }
+  .ov-score-big { font-size: 28px; font-weight: 900; line-height: 1; margin-bottom: 1px; }
+  .ov-score-label { font-size: 10px; color: var(--text-muted); text-align: right; }
+  .ov-footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+  .ov-price { font-size: 12px; font-weight: 600; }
+  .ov-price span { font-size: 10px; color: var(--text-muted); font-weight: 400; }
+  .ov-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 10px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+  .tag-green { background: rgba(22,163,74,0.15); color: var(--green-light); }
+  .tag-yellow { background: rgba(234,179,8,0.15); color: var(--yellow-light); }
+  .tag-red { background: rgba(239,68,68,0.15); color: var(--red-light); }
+  .tag-blue { background: rgba(59,130,246,0.15); color: var(--primary-light); }
+
+  /* ===== QUICK RATING TABLE ===== */
+  .qr-table {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    font-size: 11px;
+  }
+  .qr-head {
+    display: grid;
+    grid-template-columns: 1fr repeat(5, 52px);
+    background: rgba(255,255,255,0.03);
+    border-bottom: 1px solid var(--border);
+    padding: 8px 12px;
+    gap: 4px;
+    align-items: center;
+  }
+  .qr-row {
+    display: grid;
+    grid-template-columns: 1fr repeat(5, 52px);
+    padding: 8px 12px;
+    gap: 4px;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+    align-items: center;
+  }
+  .qr-row:last-child { border-bottom: none; }
+  .qr-row:nth-child(even) { background: rgba(255,255,255,0.015); }
+  .qr-label { font-size: 11px; color: var(--text-muted); line-height: 1.4; padding-right: 4px; }
+  .qr-col { text-align: center; font-size: 10px; line-height: 1.3; color: var(--yellow-light); letter-spacing: -0.5px; }
+  .qr-alert { color: var(--red-light); font-weight: 700; font-size: 10px; }
+  .qr-val { color: var(--text); font-weight: 600; font-size: 10px; }
+  .qr-section-label { background: rgba(255,255,255,0.03) !important; border-top: 1px solid var(--border); }
+  .qr-dim { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--primary-light); }
+  @media (max-width: 380px) {
+    .qr-head, .qr-row { grid-template-columns: 1fr repeat(5, 44px); }
+  }
+
+  /* ===== SUMMARY TABLE (quadro resumo) ===== */
+  .sr-table {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 8px;
+  }
+  .sr-thead, .sr-tr {
+    display: grid;
+    grid-template-columns: 72px repeat(5, 1fr);
+    align-items: center;
+  }
+  .sr-thead {
+    background: rgba(255,255,255,0.03);
+    border-bottom: 1px solid var(--border);
+    padding: 8px 10px;
+    gap: 4px;
+  }
+  .sr-tr {
+    padding: 7px 10px;
+    gap: 4px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .sr-tr:last-child { border-bottom: none; }
+  .sr-tr:nth-child(even) { background: rgba(255,255,255,0.015); }
+  .sr-tr-price { background: rgba(255,255,255,0.02) !important; }
+  .sr-th { text-align: center; }
+  .sr-th-label { text-align: left; }
+  .sr-td { display: flex; align-items: center; justify-content: center; }
+  .sr-td-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+    justify-content: flex-start;
+  }
+  .sr-val {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--text);
+    text-align: center;
+    justify-content: center;
+    line-height: 1.3;
+  }
+  /* bolinhas */
+  .sr-dot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .sr-dots {
+    display: flex;
+    gap: 3px;
+    align-items: center;
+    justify-content: center;
+  }
+  .sr-dot-on  { background: var(--green-light); }
+  .sr-dot-off { background: rgba(255,255,255,0.12); }
+  /* cores por nível (dot único na legenda) */
+  .sr-5 { background: var(--green-light); }
+  .sr-4 { background: var(--teal-light); }
+  .sr-3 { background: var(--yellow-light); }
+  .sr-2 { background: var(--orange-light); }
+  .sr-1 { background: var(--red-light); }
+  .sr-legend {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+  .sr-legend .sr-dot { width: 9px; height: 9px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div>
+      <div class="header-title">Portugal 587 — Comparativo de Propostas</div>
+      <div class="header-sub">5 propostas · Condomínio complexo em implantação</div>
+    </div>
+  </div>
+</div>
+
+<div class="nav-tabs" id="navTabs">
+  <button class="nav-tab active" data-target="visao-geral">Visão Geral</button>
+  <button class="nav-tab" data-target="empresa">Empresa</button>
+  <button class="nav-tab" data-target="sindico">Síndico</button>
+  <button class="nav-tab" data-target="implantacao">Implantação</button>
+  <button class="nav-tab" data-target="operacao">Operação</button>
+  <button class="nav-tab" data-target="preco">Preço</button>
+  <button class="nav-tab" data-target="avaliacao">Avaliação Final</button>
+</div>
+
+<!-- ===================== VISÃO GERAL ===================== -->
+<section id="visao-geral" class="active">
+  <div class="section-title">Visão Geral</div>
+  <div class="section-desc">5 propostas recebidas. Toque em qualquer card para ver detalhes da empresa na aba correspondente.</div>
+
+  <div class="alert alert-blue">
+    <strong>Contexto importante:</strong> o Portugal 587 é um condomínio novo, em fase de implantação, com múltiplos setores (residencial, studios, lojas, offices) e muitas unidades. Experiência em <strong>implantações complexas</strong> e com histórico junto à <strong>Even Construtora</strong> são diferenciais importantes para o síndico escolhido.
+  </div>
+
+  <div class="alert alert-yellow">
+    <strong>Atenção:</strong> a proposta da <strong>Renata Murtinho</strong> é de uma moradora, sem experiência como síndica profissional. O suporte operacional viria da empresa Advanced. A <strong>5ª proposta</strong> contempla a mesma empresa Advanced, mas com um <strong>síndico profissional</strong> como responsável.
+  </div>
+
+  <div class="overview-list">
+
+    <div class="overview-card gf" onclick="switchTab('avaliacao')">
+      <div class="ov-header">
+        <div>
+          <div class="ov-name">GF Consultoria</div>
+          <div class="ov-type">Empresa + Síndico profissional</div>
+        </div>
+        <div style="text-align:right">
+          <div class="ov-score-big" style="color:var(--gf)">8,1</div>
+          <div class="ov-score-label">nota /10</div>
+        </div>
+      </div>
+      <div class="ov-footer">
+        <div class="ov-price">R$ 22.880 <span>ramp.</span> / R$ 16.640 <span>normal</span></div>
+        <div class="ov-tag tag-green">Maior experiência</div>
+      </div>
+    </div>
+
+    <div class="overview-card adv-pro" onclick="switchTab('avaliacao')">
+      <div class="ov-header">
+        <div>
+          <div class="ov-name">Advanced + Síndico Profissional</div>
+          <div class="ov-type">Empresa Advanced + síndico profissional</div>
+        </div>
+        <div style="text-align:right">
+          <div class="ov-score-big" style="color:var(--adv-pro)">7,9</div>
+          <div class="ov-score-label">nota /10</div>
+        </div>
+      </div>
+      <div class="ov-footer">
+        <div class="ov-price">R$ 19.000 <span>ramp.</span> / R$ 14.560 <span>normal</span></div>
+        <div class="ov-tag tag-blue">Preço competitivo na operação normal</div>
+      </div>
+    </div>
+
+    <div class="overview-card tech" onclick="switchTab('avaliacao')">
+      <div class="ov-header">
+        <div>
+          <div class="ov-name">Tech Sindicatura</div>
+          <div class="ov-type">Empresa + Síndica profissional</div>
+        </div>
+        <div style="text-align:right">
+          <div class="ov-score-big" style="color:var(--tech)">6,8</div>
+          <div class="ov-score-label">nota /10</div>
+        </div>
+      </div>
+      <div class="ov-footer">
+        <div class="ov-price">R$ 13.000 <span>/ mês</span></div>
+        <div class="ov-tag tag-yellow">Exp. com Even ✓</div>
+      </div>
+    </div>
+
+    <div class="overview-card adv" onclick="switchTab('avaliacao')">
+      <div class="ov-header">
+        <div>
+          <div class="ov-name">Renata Murtinho</div>
+          <div class="ov-type">Moradora do cond. + suporte Advanced</div>
+        </div>
+        <div style="text-align:right">
+          <div class="ov-score-big" style="color:var(--adv)">5,8</div>
+          <div class="ov-score-label">nota /10</div>
+        </div>
+      </div>
+      <div class="ov-footer">
+        <div class="ov-price">R$ 18.500 <span>/ mês</span></div>
+        <div class="ov-tag tag-yellow">Mora no cond., conhece os problemas</div>
+      </div>
+    </div>
+
+    <div class="overview-card sp" onclick="switchTab('avaliacao')">
+      <div class="ov-header">
+        <div>
+          <div class="ov-name">SindicaturaSP</div>
+          <div class="ov-type">Empresa + Síndico profissional</div>
+        </div>
+        <div style="text-align:right">
+          <div class="ov-score-big" style="color:var(--sp)">5,2</div>
+          <div class="ov-score-label">nota /10</div>
+        </div>
+      </div>
+      <div class="ov-footer">
+        <div class="ov-price">R$ 8.300 <span>/ mês</span></div>
+        <div class="ov-tag tag-red">Menor experiência</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="cat-header">Quadro resumo</div>
+  <div class="sr-table">
+    <div class="sr-thead">
+      <div class="sr-th sr-th-label"></div>
+      <div class="sr-th"><span class="badge badge-gf">GF</span></div>
+      <div class="sr-th"><span class="badge badge-adv-pro">Adv+</span></div>
+      <div class="sr-th"><span class="badge badge-tech">Tech</span></div>
+      <div class="sr-th"><span class="badge badge-adv">Renata</span></div>
+      <div class="sr-th"><span class="badge badge-sp">SP</span></div>
+    </div>
+    <div class="sr-tr">
+      <div class="sr-td sr-td-label">Empresa</div>
+      <div class="sr-td"><span class="sr-dots"><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span></span></div>
+      <div class="sr-td"><span class="sr-dots"><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span></span></div>
+      <div class="sr-td"><span class="sr-dots"><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-off"></span><span class="sr-dot sr-dot-off"></span></span></div>
+      <div class="sr-td"><span class="sr-dots"><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span></span></div>
+      <div class="sr-td"><span class="sr-dots"><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-off"></span><span class="sr-dot sr-dot-off"></span><span class="sr-dot sr-dot-off"></span></span></div>
+    </div>
+    <div class="sr-tr">
+      <div class="sr-td sr-td-label">Síndico</div>
+      <div class="sr-td"><span class="sr-dots"><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span></span></div>
+      <div class="sr-td"><span class="sr-dots"><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-off"></span></span></div>
+      <div class="sr-td"><span class="sr-dots"><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-off"></span></span></div>
+      <div class="sr-td"><span class="sr-dots"><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-off"></span><span class="sr-dot sr-dot-off"></span><span class="sr-dot sr-dot-off"></span></span></div>
+      <div class="sr-td"><span class="sr-dots"><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-off"></span><span class="sr-dot sr-dot-off"></span></span></div>
+    </div>
+    <div class="sr-tr">
+      <div class="sr-td sr-td-label">Implantação</div>
+      <div class="sr-td"><span class="sr-dots"><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span></span></div>
+      <div class="sr-td"><span class="sr-dots"><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-off"></span></span></div>
+      <div class="sr-td"><span class="sr-dots"><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-off"></span></span></div>
+      <div class="sr-td"><span class="sr-dots"><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-off"></span></span></div>
+      <div class="sr-td"><span class="sr-dots"><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-off"></span><span class="sr-dot sr-dot-off"></span><span class="sr-dot sr-dot-off"></span></span></div>
+    </div>
+    <div class="sr-tr">
+      <div class="sr-td sr-td-label">Operação</div>
+      <div class="sr-td"><span class="sr-dots"><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span></span></div>
+      <div class="sr-td"><span class="sr-dots"><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span></span></div>
+      <div class="sr-td"><span class="sr-dots"><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-off"></span><span class="sr-dot sr-dot-off"></span></span></div>
+      <div class="sr-td"><span class="sr-dots"><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span></span></div>
+      <div class="sr-td"><span class="sr-dots"><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-off"></span><span class="sr-dot sr-dot-off"></span></span></div>
+    </div>
+    <div class="sr-tr sr-tr-price">
+      <div class="sr-td sr-td-label">Rampagem</div>
+      <div class="sr-td sr-val">R$22,9k</div>
+      <div class="sr-td sr-val">R$19k</div>
+      <div class="sr-td sr-val">R$13k</div>
+      <div class="sr-td sr-val">R$18,5k</div>
+      <div class="sr-td sr-val">R$8,3k</div>
+    </div>
+    <div class="sr-tr sr-tr-price">
+      <div class="sr-td sr-td-label">Normal</div>
+      <div class="sr-td sr-val">R$16,6k</div>
+      <div class="sr-td sr-val">R$14,6k</div>
+      <div class="sr-td sr-val">R$13k</div>
+      <div class="sr-td sr-val">R$18,5k</div>
+      <div class="sr-td sr-val">R$8,3k</div>
+    </div>
+  </div>
+  <div class="sr-legend">
+    <span class="sr-dots"><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span></span> Excelente &nbsp;
+    <span class="sr-dots"><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-off"></span></span> Boa &nbsp;
+    <span class="sr-dots"><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-off"></span><span class="sr-dot sr-dot-off"></span></span> Moderada &nbsp;
+    <span class="sr-dots"><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-off"></span><span class="sr-dot sr-dot-off"></span><span class="sr-dot sr-dot-off"></span></span> Baixa
+  </div>
+  <div style="font-size:10px;color:var(--text-dim);padding:2px 0 8px">Ordenado por nota geral. Passe o dedo sobre os pontos para ver o detalhe.</div>
+</section>
+
+<!-- ===================== EMPRESA ===================== -->
+<section id="empresa">
+  <div class="section-title">Perfil das Empresas</div>
+  <div class="section-desc">Porte, histórico, experiência e capacidade operacional de cada empresa proponente.</div>
+
+  <!-- Tech -->
+  <div class="acc-item open">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="badge badge-tech">Tech Sindicatura</span>
+        <span class="acc-title">Empresa jovem, experiência relevante c/ Even</span>
+      </div>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="acc-body">
+      <table class="detail-table">
+        <tr><td>Fundação</td><td>2020 (CNPJ atual); síndica com 8 anos de atuação como MEI anteriormente</td></tr>
+        <tr><td>Carteira</td><td>12 condomínios</td></tr>
+        <tr><td>Implantações complexo</td><td>5 implantações / 1.461 unidades</td></tr>
+        <tr><td>Experiência Even</td><td>Forte: Modo Ipiranga, RED, Arte Vila Mariana. Casos reais resolvidos.</td></tr>
+        <tr><td>Valor recuperado (5 anos)</td><td>R$ 3,2M+ (fachada); demais não dimensionado</td></tr>
+        <tr><td>SLA declarado</td><td>90% nos últimos 12 meses</td></tr>
+        <tr><td>Equipe total</td><td>7 pessoas para 12 condomínios</td></tr>
+      </table>
+      <div style="margin-top:10px;">
+        <div class="score-row"><span class="score-label">Porte e maturidade</span><span class="rating rating-3">Médio</span></div>
+        <div class="score-row"><span class="score-label">Experiência c/ Even</span><span class="rating rating-5">Excelente</span></div>
+        <div class="score-row"><span class="score-label">Volume de implantações</span><span class="rating rating-3">Moderado</span></div>
+        <div class="score-row"><span class="score-label">Estrutura de backoffice</span><span class="rating rating-3">Adequada</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SindicaturaSP -->
+  <div class="acc-item">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="badge badge-sp">SindicaturaSP</span>
+        <span class="acc-title">Empresa pequena, síndico como pessoa jurídica</span>
+      </div>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="acc-body">
+      <table class="detail-table">
+        <tr><td>Fundação</td><td>2022</td></tr>
+        <tr><td>Carteira</td><td>4 condomínios</td></tr>
+        <tr><td>Implantações complexo</td><td>2 implantações / 330 unidades</td></tr>
+        <tr><td>Experiência Even</td><td>Parcial: Campo Belo (ação em andamento, tratativas de vício oculto)</td></tr>
+        <tr><td>Valor recuperado</td><td>Não informado — não aplicou recuperação</td></tr>
+        <tr><td>SLA declarado</td><td>95%</td></tr>
+        <tr><td>Equipe total</td><td>2 pessoas (síndico técnico + síndico administrativo)</td></tr>
+      </table>
+      <div style="margin-top:10px;">
+        <div class="score-row"><span class="score-label">Porte e maturidade</span><span class="rating rating-2">Baixo</span></div>
+        <div class="score-row"><span class="score-label">Experiência c/ Even</span><span class="rating rating-2">Limitada</span></div>
+        <div class="score-row"><span class="score-label">Volume de implantações</span><span class="rating rating-2">Baixo</span></div>
+        <div class="score-row"><span class="score-label">Estrutura de backoffice</span><span class="rating rating-2">Insuficiente</span></div>
+      </div>
+      <div class="alert alert-yellow" style="margin-top:10px; margin-bottom:0">
+        <strong>Risco:</strong> equipe de 2 pessoas para um condomínio complexo em implantação é muito enxuta. Sem funcionário exclusivo e sem franquia de horas adicional.
+      </div>
+    </div>
+  </div>
+
+  <!-- GF -->
+  <div class="acc-item">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="badge badge-gf">GF Consultoria</span>
+        <span class="acc-title">Maior empresa. Presença desde 2005</span>
+      </div>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="acc-body">
+      <table class="detail-table">
+        <tr><td>Fundação</td><td>2005</td></tr>
+        <tr><td>Carteira</td><td>96 condomínios</td></tr>
+        <tr><td>Implantações complexo</td><td>26 implantações / 300–500 unid. cada; 56 implantações totais</td></tr>
+        <tr><td>Experiência Even</td><td>56 implantações + 18 operações (Even e outras grandes construtoras)</td></tr>
+        <tr><td>Valor recuperado (5 anos)</td><td>R$ 5 milhões</td></tr>
+        <tr><td>SLA declarado</td><td>100% (requer validação)</td></tr>
+        <tr><td>Equipe no condomínio</td><td>Sócio + 4 pessoas da GF dedicadas à operação</td></tr>
+      </table>
+      <div style="margin-top:10px;">
+        <div class="score-row"><span class="score-label">Porte e maturidade</span><span class="rating rating-5">Excelente</span></div>
+        <div class="score-row"><span class="score-label">Experiência c/ Even</span><span class="rating rating-5">Excelente</span></div>
+        <div class="score-row"><span class="score-label">Volume de implantações</span><span class="rating rating-5">Alto</span></div>
+        <div class="score-row"><span class="score-label">Estrutura de backoffice</span><span class="rating rating-4">Boa</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Advanced Renata -->
+  <div class="acc-item">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="badge badge-adv">Renata Murtinho</span>
+        <span class="acc-title">Grande empresa, síndica moradora sem exp. profissional</span>
+      </div>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="acc-body">
+      <table class="detail-table">
+        <tr><td>Fundação</td><td>2011</td></tr>
+        <tr><td>Carteira</td><td>45 próprios + 150 via rede de franqueados</td></tr>
+        <tr><td>Implantações complexo (empresa)</td><td>53 implantações (exemplos: Cittyplex 872 un., Parque da Cidade 612 un., Villaggio 980 un.)</td></tr>
+        <tr><td>Experiência Even</td><td>3 implantações + 10 operações (não detalha Even especificamente)</td></tr>
+        <tr><td>Valor recuperado (5 anos)</td><td>R$ 15 milhões</td></tr>
+        <tr><td>SLA declarado</td><td>75% (o mais baixo)</td></tr>
+        <tr><td>Equipe no condomínio</td><td>1 pessoa sênior + 1 auxiliar em horário comercial</td></tr>
+      </table>
+      <div style="margin-top:10px;">
+        <div class="score-row"><span class="score-label">Porte e maturidade da empresa</span><span class="rating rating-5">Excelente</span></div>
+        <div class="score-row"><span class="score-label">Experiência c/ Even</span><span class="rating rating-3">Moderada</span></div>
+        <div class="score-row"><span class="score-label">Volume de implantações</span><span class="rating rating-5">Alto</span></div>
+        <div class="score-row"><span class="score-label">Estrutura de backoffice</span><span class="rating rating-3">Adequada</span></div>
+      </div>
+      <div class="alert alert-yellow" style="margin-top:10px;margin-bottom:0">
+        <strong>Diferencial:</strong> Renata Murtinho é moradora do condomínio e vem acompanhando os problemas da gestão desde o início, o que representa um nível de conhecimento contextual que síndicos externos não têm. O suporte operacional e técnico viria integralmente da empresa Advanced. Ponto de atenção: sem experiência prévia como síndica profissional.
+      </div>
+    </div>
+  </div>
+
+  <!-- Advanced Pro -->
+  <div class="acc-item">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="badge badge-adv-pro">Advanced + Profissional</span>
+        <span class="acc-title">Empresa Advanced + síndico profissional</span>
+      </div>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="acc-body">
+      <table class="detail-table">
+        <tr><td>Empresa</td><td>Advanced — mesmos dados de porte, carteira e metodologia</td></tr>
+        <tr><td>Síndico</td><td>Profissional indicado pela Advanced, com experiência em implantações complexas</td></tr>
+        <tr><td>Implantações complexo (empresa)</td><td>53 (idem Advanced)</td></tr>
+        <tr><td>SLA declarado</td><td>75% (idem Advanced)</td></tr>
+        <tr><td>Valor recuperado (5 anos)</td><td>R$ 15 milhões (idem Advanced)</td></tr>
+        <tr><td>Equipe</td><td>1 sênior + 1 auxiliar (idem) + síndico profissional dedicado</td></tr>
+      </table>
+      <div style="margin-top:10px;">
+        <div class="score-row"><span class="score-label">Porte e maturidade da empresa</span><span class="rating rating-5">Excelente</span></div>
+        <div class="score-row"><span class="score-label">Experiência c/ Even</span><span class="rating rating-3">Moderada</span></div>
+        <div class="score-row"><span class="score-label">Volume de implantações</span><span class="rating rating-5">Alto</span></div>
+        <div class="score-row"><span class="score-label">Estrutura de backoffice</span><span class="rating rating-4">Boa</span></div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ===================== SÍNDICO ===================== -->
+<section id="sindico">
+  <div class="section-title">Perfil do Síndico</div>
+  <div class="section-desc">Experiência, dedicação, vínculo e capacidade do profissional indicado para liderar o condomínio.</div>
+
+  <div class="alert alert-yellow">
+    <strong>Referência para o Portugal 587:</strong> síndico deve ter experiência em implantações complexas/multiuso, de preferência com a Even, alta disponibilidade na fase inicial e vínculo formal com a empresa gestora.
+  </div>
+
+  <!-- Tech -->
+  <div class="acc-item open">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="badge badge-tech">Tech</span>
+        <span class="acc-title">Jaqueline — Sócia-síndica, 8 anos</span>
+      </div>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="acc-body">
+      <table class="detail-table">
+        <tr><td>Tipo</td><td>Equipe própria (sócia da empresa)</td></tr>
+        <tr><td>Tempo na empresa</td><td>8 anos (MEI anterior + CNPJ 2020)</td></tr>
+        <tr><td>Implantações complexo</td><td>5 implantações / 1.198 unidades</td></tr>
+        <tr><td>Condomínios em gestão</td><td>12 (é a síndica de todos)</td></tr>
+        <tr><td>Distância ao condomínio</td><td>5,3 km</td></tr>
+        <tr><td>Horas/semana rampagem</td><td>8–12h presencial (mais reuniões remotas)</td></tr>
+        <tr><td>Horas/semana operação</td><td>20h semanais</td></tr>
+        <tr><td>Exp. c/ Even</td><td>Forte: Modo (240 obras simultâneas), RED (garantia após 7 anos), Arte Vila Mariana (vício Otis resolvido)</td></tr>
+        <tr><td>Cobertura de ausências</td><td>Apenas 10 dias/ano; equipe cobre férias</td></tr>
+      </table>
+      <div style="margin-top:10px;">
+        <div class="score-row"><span class="score-label">Experiência geral</span><span class="rating rating-4">Boa</span></div>
+        <div class="score-row"><span class="score-label">Experiência c/ Even</span><span class="rating rating-5">Excelente</span></div>
+        <div class="score-row"><span class="score-label">Dedicação na rampagem</span><span class="rating rating-2">Baixa (8–12h)</span></div>
+        <div class="score-row"><span class="score-label">Vínculo com empresa</span><span class="rating rating-5">Sócia</span></div>
+      </div>
+      <div class="alert alert-yellow" style="margin-top:10px;margin-bottom:0">
+        <strong>Ponto de atenção:</strong> 12 condomínios para uma síndica que é sócia única. 8–12h/semana no período de rampagem pode ser insuficiente para um condomínio deste porte.
+      </div>
+    </div>
+  </div>
+
+  <!-- SP -->
+  <div class="acc-item">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="badge badge-sp">SP</span>
+        <span class="acc-title">Carlos Morais — Síndico PJ, 15 anos</span>
+      </div>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="acc-body">
+      <table class="detail-table">
+        <tr><td>Tipo</td><td>PJ (não CLT)</td></tr>
+        <tr><td>Tempo na empresa</td><td>"Mais de 15 anos" como síndico (empresa fundada em 2022 — inconsistência)</td></tr>
+        <tr><td>Implantações complexo</td><td>2 implantações / 330 unidades</td></tr>
+        <tr><td>Condomínios em gestão</td><td>4 condomínios</td></tr>
+        <tr><td>Distância ao condomínio</td><td>3 km</td></tr>
+        <tr><td>Horas/semana rampagem</td><td>40h+ (declarado como presença integral)</td></tr>
+        <tr><td>Horas/semana operação</td><td>12h+</td></tr>
+        <tr><td>Exp. c/ Even</td><td>Parcial: 1 condomínio no Campo Belo (ação judicial em andamento)</td></tr>
+        <tr><td>Cobertura de ausências</td><td>"Síndico não se ausenta" — sem plano B formal</td></tr>
+      </table>
+      <div style="margin-top:10px;">
+        <div class="score-row"><span class="score-label">Experiência geral</span><span class="rating rating-3">Moderada</span></div>
+        <div class="score-row"><span class="score-label">Experiência c/ Even</span><span class="rating rating-2">Limitada</span></div>
+        <div class="score-row"><span class="score-label">Dedicação na rampagem</span><span class="rating rating-5">Alta (40h)</span></div>
+        <div class="score-row"><span class="score-label">Vínculo com empresa</span><span class="rating rating-3">PJ</span></div>
+      </div>
+      <div class="alert alert-yellow" style="margin-top:10px;margin-bottom:0">
+        <strong>Inconsistência:</strong> afirma "mais de 15 anos" mas a empresa foi fundada em 2022. Apenas 2 implantações complexas, nenhuma com a Even em implantação. Ausência de plano de contingência ("síndico não se ausenta" não é um plano).
+      </div>
+    </div>
+  </div>
+
+  <!-- GF -->
+  <div class="acc-item">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="badge badge-gf">GF</span>
+        <span class="acc-title">Sócio da GF, experiência extensa</span>
+      </div>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="acc-body">
+      <table class="detail-table">
+        <tr><td>Tipo</td><td>Sócio da GF (equipe própria)</td></tr>
+        <tr><td>Tempo na empresa</td><td>Desde a fundação (2005) — 21 anos</td></tr>
+        <tr><td>Implantações complexo</td><td>26 implantações / 300–500 un. cada</td></tr>
+        <tr><td>Condomínios sob gestão</td><td>Além do síndico, 4 pessoas da GF dedicadas ao condomínio</td></tr>
+        <tr><td>Distância ao condomínio</td><td>3 km</td></tr>
+        <tr><td>Horas/semana rampagem</td><td>20h síndico + equipe complementar</td></tr>
+        <tr><td>Horas/semana operação</td><td>12h síndico</td></tr>
+        <tr><td>Exp. c/ Even</td><td>56 implantações + 18 operações</td></tr>
+        <tr><td>Cobertura de ausências</td><td>GF como empresa garante continuidade — não depende de uma pessoa</td></tr>
+      </table>
+      <div style="margin-top:10px;">
+        <div class="score-row"><span class="score-label">Experiência geral</span><span class="rating rating-5">Excelente</span></div>
+        <div class="score-row"><span class="score-label">Experiência c/ Even</span><span class="rating rating-5">Excelente</span></div>
+        <div class="score-row"><span class="score-label">Dedicação na rampagem</span><span class="rating rating-4">Boa (20h + equipe)</span></div>
+        <div class="score-row"><span class="score-label">Vínculo com empresa</span><span class="rating rating-5">Sócio</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Advanced Renata -->
+  <div class="acc-item">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="badge badge-adv">Renata Murtinho</span>
+        <span class="acc-title">Renata Murtinho — Moradora, suporte Advanced</span>
+      </div>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="acc-body">
+      <table class="detail-table">
+        <tr><td>Tipo</td><td>PJ — moradora do condomínio</td></tr>
+        <tr><td>Tempo na empresa</td><td>N/A — não é profissional de sindicatura</td></tr>
+        <tr><td>Implantações complexo</td><td>0 (nenhuma como síndica)</td></tr>
+        <tr><td>Condomínios sob gestão</td><td>0 (primeira gestão)</td></tr>
+        <tr><td>Distância ao condomínio</td><td>0 km (mora no condomínio)</td></tr>
+        <tr><td>Horas/semana rampagem</td><td>20h+ (com dedicação exclusiva no 1º ano declarada)</td></tr>
+        <tr><td>Horas/semana operação</td><td>20h</td></tr>
+        <tr><td>Exp. c/ Even</td><td>Nenhuma como síndica</td></tr>
+        <tr><td>Cobertura de ausências</td><td>Gestor predial da Advanced (Thiago)</td></tr>
+      </table>
+      <div style="margin-top:10px;">
+        <div class="score-row"><span class="score-label">Experiência geral</span><span class="rating rating-1">Nenhuma</span></div>
+        <div class="score-row"><span class="score-label">Experiência c/ Even</span><span class="rating rating-1">Nenhuma</span></div>
+        <div class="score-row"><span class="score-label">Dedicação na rampagem</span><span class="rating rating-4">Alta (20h+)</span></div>
+        <div class="score-row"><span class="score-label">Vínculo com empresa</span><span class="rating rating-1">Moradora</span></div>
+      </div>
+      <div class="alert alert-yellow" style="margin-top:10px;margin-bottom:0">
+        <strong>Contexto:</strong> Renata mora no condomínio e vem acompanhando os problemas desde o início da gestão, o que representa familiaridade real com a realidade do Portugal 587. Todo o suporte técnico, operacional e jurídico viria da Advanced. O ponto a ponderar é a ausência de experiência prévia como síndica profissional em outros condomínios.
+      </div>
+    </div>
+  </div>
+
+  <!-- Advanced Pro -->
+  <div class="acc-item">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="badge badge-adv-pro">Advanced + Profissional</span>
+        <span class="acc-title">Síndico profissional indicado pela Advanced</span>
+      </div>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="acc-body">
+      <table class="detail-table">
+        <tr><td>Tipo</td><td>Profissional indicado e supervisionado pela Advanced</td></tr>
+        <tr><td>Implantações complexo</td><td>A definir — a Advanced conta com carteira de profissionais experientes</td></tr>
+        <tr><td>Condomínios sob gestão</td><td>A definir pelo profissional indicado</td></tr>
+        <tr><td>Distância ao condomínio</td><td>A definir</td></tr>
+        <tr><td>Horas/semana rampagem</td><td>20h (mesma proposta da Advanced)</td></tr>
+        <tr><td>Horas/semana operação</td><td>12h</td></tr>
+        <tr><td>Exp. c/ Even</td><td>A confirmar junto à Advanced</td></tr>
+        <tr><td>Cobertura de ausências</td><td>Estrutura da Advanced garante continuidade</td></tr>
+      </table>
+      <div style="margin-top:10px;">
+        <div class="score-row"><span class="score-label">Experiência geral</span><span class="rating rating-4">Boa (estimada)</span></div>
+        <div class="score-row"><span class="score-label">Experiência c/ Even</span><span class="rating rating-3">A confirmar</span></div>
+        <div class="score-row"><span class="score-label">Dedicação na rampagem</span><span class="rating rating-4">Boa (20h)</span></div>
+        <div class="score-row"><span class="score-label">Vínculo com empresa</span><span class="rating rating-4">Profissional</span></div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ===================== IMPLANTAÇÃO ===================== -->
+<section id="implantacao">
+  <div class="section-title">Implantação e Even</div>
+  <div class="section-desc">Experiência com condomínios complexos/multiuso e com a construtora Even — critérios críticos para o Portugal 587.</div>
+
+  <div class="alert alert-blue">
+    <strong>Por que isso importa:</strong> o Portugal 587 está no início da implantação. Haverá dezenas (ou centenas) de chamados à Even, vícios construtivos, negociação de garantias, e obras em paralelo. Um síndico sem experiência nesse contexto pode custar muito mais ao condomínio do que a diferença de mensalidade.
+  </div>
+
+  <div class="cat-header">Experiência em implantações complexas</div>
+
+  <div class="comp-item">
+    <div class="comp-item-header">
+      <span class="comp-item-label">Implantações complexo/multiuso (empresa)</span>
+    </div>
+    <div class="comp-row"><div class="comp-co"><span class="badge badge-gf">GF</span></div><div class="comp-val">26 implantações / 300–500 un. (+ 56 no total com outras construtoras)</div><div class="comp-rating"><span class="rating rating-5">Excelente</span></div></div>
+    <div class="comp-row"><div class="comp-co"><span class="badge badge-adv-pro">Adv+ Pro</span></div><div class="comp-val">53 implantações pela empresa Advanced (Cittyplex 872 un., Parque da Cidade 612 un., Villaggio 980 un.)</div><div class="comp-rating"><span class="rating rating-5">Excelente</span></div></div>
+    <div class="comp-row"><div class="comp-co"><span class="badge badge-adv">Renata</span></div><div class="comp-val">53 implantações pela empresa Advanced — mesma base da proposta Adv+. A síndica indicada (Renata) não tem implantações como responsável.</div><div class="comp-rating"><span class="rating rating-4">Boa (empresa)</span></div></div>
+    <div class="comp-row"><div class="comp-co"><span class="badge badge-tech">Tech</span></div><div class="comp-val">5 implantações / 1.461 unidades totais</div><div class="comp-rating"><span class="rating rating-3">Moderada</span></div></div>
+    <div class="comp-row"><div class="comp-co"><span class="badge badge-sp">SindicSP</span></div><div class="comp-val">2 implantações / 330 unidades</div><div class="comp-rating"><span class="rating rating-2">Baixa</span></div></div>
+  </div>
+
+  <div class="comp-item">
+    <div class="comp-item-header">
+      <span class="comp-item-label">Experiência específica com a Even</span>
+    </div>
+    <div class="comp-row"><div class="comp-co"><span class="badge badge-gf">GF</span></div><div class="comp-val">56 implantações + 18 operações com Even e outras grandes construtoras. Casos de judicialização bem documentados.</div><div class="comp-rating"><span class="rating rating-5">Excelente</span></div></div>
+    <div class="comp-row"><div class="comp-co"><span class="badge badge-tech">Tech</span></div><div class="comp-val">Modo Ipiranga (240 obras simultâneas), RED (garantia após 7 anos), Arte Vila Mariana (vício Otis). Relacionamento com toda a diretoria de AT da Even.</div><div class="comp-rating"><span class="rating rating-5">Excelente</span></div></div>
+    <div class="comp-row"><div class="comp-co"><span class="badge badge-adv-pro">Adv+ Pro</span></div><div class="comp-val">3 implantações + 10 operações pela Advanced. Even mencionada genericamente; sem casos detalhados específicos.</div><div class="comp-rating"><span class="rating rating-3">Moderada</span></div></div>
+    <div class="comp-row"><div class="comp-co"><span class="badge badge-adv">Renata</span></div><div class="comp-val">Mesma base de empresa da proposta Adv+. Renata como moradora acompanhou as tratativas do Portugal 587 com a Even desde o início — conhecimento contextual do condomínio, sem experiência prévia em outros projetos.</div><div class="comp-rating"><span class="rating rating-3">Contextual</span></div></div>
+    <div class="comp-row"><div class="comp-co"><span class="badge badge-sp">SindicSP</span></div><div class="comp-val">1 condomínio Even (Campo Belo) com ação judicial em andamento da gestão anterior. Sem implantação com Even.</div><div class="comp-rating"><span class="rating rating-2">Baixa</span></div></div>
+  </div>
+
+  <div class="comp-item">
+    <div class="comp-item-header">
+      <span class="comp-item-label">Tempo estimado para normalização da operação</span>
+    </div>
+    <div class="comp-row"><div class="comp-co"><span class="badge badge-tech">Tech</span></div><div class="comp-val">3 meses saindo do estado crítico; 2 anos para operação tranquila. Realista e baseado em experiência real (Modo).</div><div class="comp-rating"><span class="rating rating-5">Realista</span></div></div>
+    <div class="comp-row"><div class="comp-co"><span class="badge badge-gf">GF</span></div><div class="comp-val">18 meses. Planejamento detalhado com Plano Diretor validado com Conselho.</div><div class="comp-rating"><span class="rating rating-4">Estruturado</span></div></div>
+    <div class="comp-row"><div class="comp-co"><span class="badge badge-adv-pro">Adv+ Pro</span></div><div class="comp-val">6–8 meses (se previsão orçamentária adequada); 12 meses se precisar redimensionar.</div><div class="comp-rating"><span class="rating rating-3">Otimista</span></div></div>
+    <div class="comp-row"><div class="comp-co"><span class="badge badge-adv">Renata</span></div><div class="comp-val">Idem — mesma proposta de empresa. Renata já conhece o estágio atual do condomínio, o que pode acelerar a fase de diagnóstico inicial.</div><div class="comp-rating"><span class="rating rating-3">Otimista</span></div></div>
+    <div class="comp-row"><div class="comp-co"><span class="badge badge-sp">SindicSP</span></div><div class="comp-val">24–30 meses. Baseado em experiência com outros condomínios mistos.</div><div class="comp-rating"><span class="rating rating-3">Realista</span></div></div>
+  </div>
+
+  <div class="comp-item">
+    <div class="comp-item-header">
+      <span class="comp-item-label">Metodologia de implantação</span>
+    </div>
+    <div class="comp-row"><div class="comp-co"><span class="badge badge-gf">GF</span></div><div class="comp-val">Imersão 360° de 120 dias: análise física, documental e operacional. Plano Diretor validado com Conselho.</div><div class="comp-rating"><span class="rating rating-5">Excelente</span></div></div>
+    <div class="comp-row"><div class="comp-co"><span class="badge badge-adv-pro">Adv+ Pro</span></div><div class="comp-val">Metodologia própria Advanced: diagnóstico → estruturação → consolidação. Sistema Advanced incluso. App e digital.</div><div class="comp-rating"><span class="rating rating-4">Boa</span></div></div>
+    <div class="comp-row"><div class="comp-co"><span class="badge badge-adv">Renata</span></div><div class="comp-val">Mesma metodologia Advanced. Renata já participou da gestão do condomínio — a curva de aprendizado sobre a realidade do Portugal 587 é menor do que para um síndico externo.</div><div class="comp-rating"><span class="rating rating-4">Boa</span></div></div>
+    <div class="comp-row"><div class="comp-co"><span class="badge badge-tech">Tech</span></div><div class="comp-val">Trabalho por setores (portaria, limpeza, zeladoria, chamados). Equipe com papéis definidos. Menos formal, mais prático.</div><div class="comp-rating"><span class="rating rating-3">Moderada</span></div></div>
+    <div class="comp-row"><div class="comp-co"><span class="badge badge-sp">SindicSP</span></div><div class="comp-val">"Processo, cronograma, fluxograma de trabalho e muita comunicação." Genérico, sem detalhes.</div><div class="comp-rating"><span class="rating rating-2">Baixa</span></div></div>
+  </div>
+
+</section>
+
+<!-- ===================== OPERAÇÃO ===================== -->
+<section id="operacao">
+  <div class="section-title">Modelo Operacional</div>
+  <div class="section-desc">Backoffice, suporte jurídico/engenharia, SLA, comunicação e cobertura.</div>
+
+  <div class="comp-item">
+    <div class="comp-item-header"><span class="comp-item-label">Backoffice e equipe dedicada</span></div>
+    <div class="comp-row"><div class="comp-co"><span class="badge badge-tech">Tech</span></div><div class="comp-val">5 pessoas (compras, administrativo, comunicação, sindicância). 7 pessoas para 12 cond. — 0,58 pessoas/cond. Equipe própria.</div><div class="comp-rating"><span class="rating rating-3">3/5</span></div></div>
+    <div class="comp-row"><div class="comp-co"><span class="badge badge-sp">SindicSP</span></div><div class="comp-val">2 pessoas (síndico técnico + administrativo). Sem funcionário exclusivo. Muito enxuto para o porte.</div><div class="comp-rating"><span class="rating rating-1">1/5</span></div></div>
+    <div class="comp-row"><div class="comp-co"><span class="badge badge-gf">GF</span></div><div class="comp-val">3 pessoas PJ (comunicação/compras, atendimento, vistorias técnicas + controladoria) + sócio. Atendem mais 5 cond.</div><div class="comp-rating"><span class="rating rating-4">4/5</span></div></div>
+    <div class="comp-row"><div class="comp-co"><span class="badge badge-adv">Renata</span></div><div class="comp-val">1 sênior + 1 auxiliar da Advanced. Renata presente no condomínio como moradora — disponibilidade imediata in loco como diferencial.</div><div class="comp-rating"><span class="rating rating-3">Moderada</span></div></div>
+    <div class="comp-row"><div class="comp-co"><span class="badge badge-adv-pro">Adv+Pro</span></div><div class="comp-val">Idem Advanced + síndico profissional dedicado.</div><div class="comp-rating"><span class="rating rating-4">4/5</span></div></div>
+  </div>
+
+  <div class="comp-item">
+    <div class="comp-item-header"><span class="comp-item-label">Suporte jurídico e de engenharia</span></div>
+    <div class="comp-row"><div class="comp-co"><span class="badge badge-tech">Tech</span></div><div class="comp-val">Engenharia: empresa parceira (terceirizada, não inclusa no pacote). Jurídico: presente mas não advoga para o cond. Recomenda contratar equipes externas.</div><div class="comp-rating"><span class="rating rating-2">Parcial</span></div></div>
+    <div class="comp-row"><div class="comp-co"><span class="badge badge-sp">SindicSP</span></div><div class="comp-val">Sim — advogado, engenheiro e auditor inclusos.</div><div class="comp-rating"><span class="rating rating-5">Incluso</span></div></div>
+    <div class="comp-row"><div class="comp-co"><span class="badge badge-gf">GF</span></div><div class="comp-val">Jurídico: assessoria extrajudicial. Engenharia: análise de manutenções e apoio nas tratativas com construtora. Ambos inclusos.</div><div class="comp-rating"><span class="rating rating-5">Incluso</span></div></div>
+    <div class="comp-row"><div class="comp-co"><span class="badge badge-adv">Renata</span></div><div class="comp-val">Idem Advanced — jurídico preventivo + engenharia (laudos, ART, inspeção predial). Ambos inclusos.</div><div class="comp-rating"><span class="rating rating-5">Incluso</span></div></div>
+    <div class="comp-row"><div class="comp-co"><span class="badge badge-adv-pro">Adv+Pro</span></div><div class="comp-val">Idem Advanced — ambos inclusos.</div><div class="comp-rating"><span class="rating rating-5">Incluso</span></div></div>
+  </div>
+
+  <div class="comp-item">
+    <div class="comp-item-header"><span class="comp-item-label">Tempo de resposta — crítico / não crítico</span></div>
+    <div class="comp-row"><div class="comp-co"><span class="badge badge-tech">Tech</span></div><div class="comp-val">Crítico: ~5 min (abertura de chamado). Não crítico: sem prazo definido.</div><div class="comp-rating"><span class="rating rating-4">4/5</span></div></div>
+    <div class="comp-row"><div class="comp-co"><span class="badge badge-sp">SindicSP</span></div><div class="comp-val">Ambos: imediato. Genérico — sem processos definidos.</div><div class="comp-rating"><span class="rating rating-3">3/5</span></div></div>
+    <div class="comp-row"><div class="comp-co"><span class="badge badge-gf">GF</span></div><div class="comp-val">Crítico: imediato. Não crítico: até 24h. Exemplos concretos documentados.</div><div class="comp-rating"><span class="rating rating-5">5/5</span></div></div>
+    <div class="comp-row"><div class="comp-co"><span class="badge badge-adv">Renata</span></div><div class="comp-val">Idem Advanced: crítico 15 min, não crítico até 2h úteis. Renata mora no condomínio — presença física imediata sem necessidade de deslocamento.</div><div class="comp-rating"><span class="rating rating-5">Excelente</span></div></div>
+    <div class="comp-row"><div class="comp-co"><span class="badge badge-adv-pro">Adv+Pro</span></div><div class="comp-val">Idem Advanced.</div><div class="comp-rating"><span class="rating rating-5">5/5</span></div></div>
+  </div>
+
+  <div class="comp-item">
+    <div class="comp-item-header"><span class="comp-item-label">Comunicação com moradores</span></div>
+    <div class="comp-row"><div class="comp-co"><span class="badge badge-tech">Tech</span></div><div class="comp-val">Grupo de WhatsApp (regras, acontecimentos, chamados). Relatório semanal/quinzenal/mensal com chamados, financeiro, advertências.</div><div class="comp-rating"><span class="rating rating-4">4/5</span></div></div>
+    <div class="comp-row"><div class="comp-co"><span class="badge badge-sp">SindicSP</span></div><div class="comp-val">WhatsApp único do síndico para todos condôminos. Sem sistema ou boletim estruturado.</div><div class="comp-rating"><span class="rating rating-2">2/5</span></div></div>
+    <div class="comp-row"><div class="comp-co"><span class="badge badge-gf">GF</span></div><div class="comp-val">E-mail + WhatsApp + boletins periódicos + telas de elevador. Dashboard online atualizado diariamente.</div><div class="comp-rating"><span class="rating rating-5">5/5</span></div></div>
+    <div class="comp-row"><div class="comp-co"><span class="badge badge-adv">Renata</span></div><div class="comp-val">Sistema próprio Advanced + WhatsApp + boletins semanais/mensais + Drive compartilhado. Renata como moradora pode reforçar canais informais com os condôminos de forma natural.</div><div class="comp-rating"><span class="rating rating-5">Excelente</span></div></div>
+    <div class="comp-row"><div class="comp-co"><span class="badge badge-adv-pro">Adv+Pro</span></div><div class="comp-val">Idem Advanced.</div><div class="comp-rating"><span class="rating rating-5">5/5</span></div></div>
+  </div>
+
+  <div class="comp-item">
+    <div class="comp-item-header"><span class="comp-item-label">Taxa de inadimplência declarada</span></div>
+    <div class="comp-row"><div class="comp-co"><span class="badge badge-gf">GF</span></div><div class="comp-val">1%</div><div class="comp-rating"><span class="rating rating-5">5/5</span></div></div>
+    <div class="comp-row"><div class="comp-co"><span class="badge badge-tech">Tech</span></div><div class="comp-val">&lt;2%</div><div class="comp-rating"><span class="rating rating-5">5/5</span></div></div>
+    <div class="comp-row"><div class="comp-co"><span class="badge badge-sp">SindicSP</span></div><div class="comp-val">&lt;5%</div><div class="comp-rating"><span class="rating rating-3">3/5</span></div></div>
+    <div class="comp-row"><div class="comp-co"><span class="badge badge-adv">Renata</span></div><div class="comp-val">N/A — não informado</div><div class="comp-rating"><span class="rating rating-3">N/A</span></div></div>
+  </div>
+
+</section>
+
+<!-- ===================== PREÇO ===================== -->
+<section id="preco">
+  <div class="section-title">Preço e Custo-Benefício</div>
+  <div class="section-desc">Valores mensais para período de rampagem e operação normal.</div>
+
+  <div class="cat-header">Período de rampagem</div>
+
+  <div class="price-bar">
+    <div class="price-label"><span class="badge badge-gf">GF Consultoria</span><strong style="color:var(--text)">R$ 22.880</strong></div>
+    <div class="price-track"><div class="price-fill" style="width:100%;background:var(--gf)"></div></div>
+  </div>
+  <div class="price-bar">
+    <div class="price-label"><span class="badge badge-adv">Renata Murtinho</span><strong style="color:var(--text)">R$ 18.500</strong></div>
+    <div class="price-track"><div class="price-fill" style="width:80.8%;background:var(--adv)"></div></div>
+  </div>
+  <div class="price-bar">
+    <div class="price-label"><span class="badge badge-adv-pro">Advanced + Pro</span><strong style="color:var(--text)">R$ 19.000</strong></div>
+    <div class="price-track"><div class="price-fill" style="width:83%;background:var(--adv-pro)"></div></div>
+  </div>
+  <div class="price-bar">
+    <div class="price-label"><span class="badge badge-tech">Tech Sindicatura</span><strong style="color:var(--text)">R$ 13.000</strong></div>
+    <div class="price-track"><div class="price-fill" style="width:56.8%;background:var(--tech)"></div></div>
+  </div>
+  <div class="price-bar">
+    <div class="price-label"><span class="badge badge-sp">SindicaturaSP</span><strong style="color:var(--text)">R$ 8.300</strong></div>
+    <div class="price-track"><div class="price-fill" style="width:36.3%;background:var(--sp)"></div></div>
+  </div>
+
+  <div class="cat-header">Operação normal</div>
+
+  <div class="price-bar">
+    <div class="price-label"><span class="badge badge-adv">Renata Murtinho</span><strong style="color:var(--text)">R$ 18.500</strong></div>
+    <div class="price-track"><div class="price-fill" style="width:100%;background:var(--adv)"></div></div>
+  </div>
+  <div class="price-bar">
+    <div class="price-label"><span class="badge badge-gf">GF Consultoria</span><strong style="color:var(--text)">R$ 16.640</strong></div>
+    <div class="price-track"><div class="price-fill" style="width:89.9%;background:var(--gf)"></div></div>
+  </div>
+  <div class="price-bar">
+    <div class="price-label"><span class="badge badge-adv-pro">Advanced + Pro</span><strong style="color:var(--text)">R$ 14.560</strong></div>
+    <div class="price-track"><div class="price-fill" style="width:78.7%;background:var(--adv-pro)"></div></div>
+  </div>
+  <div class="price-bar">
+    <div class="price-label"><span class="badge badge-tech">Tech Sindicatura</span><strong style="color:var(--text)">R$ 13.000</strong></div>
+    <div class="price-track"><div class="price-fill" style="width:70.3%;background:var(--tech)"></div></div>
+  </div>
+  <div class="price-bar">
+    <div class="price-label"><span class="badge badge-sp">SindicaturaSP</span><strong style="color:var(--text)">R$ 8.300</strong></div>
+    <div class="price-track"><div class="price-fill" style="width:44.9%;background:var(--sp)"></div></div>
+  </div>
+
+  <div class="sep"></div>
+
+  <div class="cat-header">Análise custo-benefício</div>
+
+  <div class="card">
+    <table class="detail-table">
+      <thead><tr><th>Empresa</th><th>Rampagem</th><th>Normal</th><th>Apólice seguro</th></tr></thead>
+      <tbody>
+        <tr><td><span class="badge badge-tech">Tech</span></td><td style="font-size:12px">R$ 13.000</td><td style="font-size:12px">R$ 13.000</td><td style="font-size:12px">R$ 1M</td></tr>
+        <tr><td><span class="badge badge-sp">SP</span></td><td style="font-size:12px">R$ 8.300</td><td style="font-size:12px">R$ 8.300</td><td style="font-size:12px">R$ 1M</td></tr>
+        <tr><td><span class="badge badge-gf">GF</span></td><td style="font-size:12px">R$ 22.880</td><td style="font-size:12px">R$ 16.640</td><td style="font-size:12px">R$ 3M</td></tr>
+        <tr><td><span class="badge badge-adv">Renata</span></td><td style="font-size:12px">R$ 18.500</td><td style="font-size:12px">R$ 18.500</td><td style="font-size:12px">R$ 5M</td></tr>
+        <tr><td><span class="badge badge-adv-pro">Adv+</span></td><td style="font-size:12px">R$ 19.000</td><td style="font-size:12px">R$ 14.560</td><td style="font-size:12px">R$ 5M</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Observações sobre preço</div>
+    <div style="font-size:12px;color:var(--text-muted);line-height:1.8">
+      <div style="margin-bottom:8px"><span class="badge badge-sp">SindicSP</span> — Preço mais baixo, mas capacidade operacional muito abaixo do necessário. Risco de custo oculto alto (demandas não atendidas, perda de garantias, inadimplência).</div>
+      <div style="margin-bottom:8px"><span class="badge badge-tech">Tech</span> — Preço justo para o porte e qualidade oferecida. Porém valor idêntico nos dois períodos sugere pouca flexibilidade.</div>
+      <div style="margin-bottom:8px"><span class="badge badge-gf">GF</span> — Rampagem cara, mas operação normal razoável. Apólice de R$ 3M e experiência premium justificam parte do valor.</div>
+      <div style="margin-bottom:8px"><span class="badge badge-adv">Renata</span> — Valor igual nos dois períodos. A estrutura da Advanced (apólice R$ 5M, jurídico + engenharia) está inclusa. Renata como moradora elimina o custo de deslocamento e a curva de aprendizado sobre o condomínio.</div>
+      <div><span class="badge badge-adv-pro">Adv + Profissional</span> — Melhor relação custo-benefício potencial: empresa robusta + síndico profissional + preço competitivo na operação normal.</div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ===================== AVALIAÇÃO FINAL ===================== -->
+<section id="avaliacao">
+  <div class="section-title">Avaliação Final</div>
+  <div class="section-desc">Notas ponderadas por categoria, considerando o perfil do Portugal 587: condomínio novo, complexo, em implantação, multiuso.</div>
+
+  <div class="alert alert-blue">
+    <strong>Critérios com maior peso:</strong> experiência em implantações complexas (30%), perfil do síndico (25%), experiência com a Even (15%). Preço tem peso menor — uma má gestão na implantação custa muito mais do que a diferença de mensalidade.
+  </div>
+
+  <!-- GF -->
+  <div class="overall-card gf">
+    <div class="overall-header">
+      <div>
+        <span class="badge badge-gf" style="margin-bottom:6px;display:inline-block">GF Consultoria</span>
+        <div class="overall-name">GF Consultoria</div>
+        <div style="font-size:11px;color:var(--text-muted)">Empresa + Síndico profissional (sócio)</div>
+      </div>
+      <div style="text-align:right">
+        <div class="overall-score" style="color:var(--gf)">8,1</div>
+        <div class="overall-score-label">nota geral /10</div>
+      </div>
+    </div>
+    <div class="mini-bar">
+      <div class="mini-seg" style="background:var(--gf);flex:5" title="Empresa 5/5"></div>
+      <div class="mini-seg" style="background:var(--gf);flex:5" title="Síndico 5/5"></div>
+      <div class="mini-seg" style="background:var(--gf);flex:5" title="Implantação 5/5"></div>
+      <div class="mini-seg" style="background:#22C55E88;flex:4" title="Operação 4/5"></div>
+      <div class="mini-seg" style="background:#22C55E55;flex:3" title="Preço 3/5"></div>
+    </div>
+    <div style="font-size:10px;color:var(--text-dim);margin-top:4px">Empresa · Síndico · Implantação · Operação · Preço</div>
+    <div class="overall-pros-cons">
+      <div class="pros"><strong>✓ Pontos fortes</strong>Maior experiência geral<br>56 implantações c/ Even<br>Equipe dedicada (sócio + 4)<br>Metodologia mais estruturada<br>Dashboard diário<br>Jurídico + engenharia inclusos</div>
+      <div class="cons"><strong>✗ Pontos fracos</strong>Preço alto na rampagem (R$ 22.880)<br>Backoffice é PJ, atende outros 5 cond.<br>SLA "100%" parece exagerado<br>Proposta genérica em alguns pontos</div>
+    </div>
+    <div class="verdict">Maior track record geral da seleção: 96 condomínios na carteira, 56 implantações com grandes construtoras e sócio como síndico desde 2005. Metodologia de imersão 360° com Plano Diretor validado pelo Conselho. Jurídico e engenharia inclusos. Rampagem é a mais cara da seleção; operação normal cai para R$ 16.640.</div>
+  </div>
+
+  <!-- Advanced Pro -->
+  <div class="overall-card adv-pro">
+    <div class="overall-header">
+      <div>
+        <span class="badge badge-adv-pro" style="margin-bottom:6px;display:inline-block">Advanced + Profissional</span>
+        <div class="overall-name">Advanced + Síndico Profissional</div>
+        <div style="font-size:11px;color:var(--text-muted)">Empresa Advanced + síndico profissional</div>
+      </div>
+      <div style="text-align:right">
+        <div class="overall-score" style="color:var(--adv-pro)">7,9</div>
+        <div class="overall-score-label">nota geral /10</div>
+      </div>
+    </div>
+    <div class="mini-bar">
+      <div class="mini-seg" style="background:var(--adv-pro);flex:5" title="Empresa 5/5"></div>
+      <div class="mini-seg" style="background:#3B82F688;flex:4" title="Síndico 4/5"></div>
+      <div class="mini-seg" style="background:var(--adv-pro);flex:5" title="Implantação 5/5"></div>
+      <div class="mini-seg" style="background:#3B82F688;flex:4" title="Operação 4/5"></div>
+      <div class="mini-seg" style="background:#3B82F666;flex:4" title="Preço 4/5"></div>
+    </div>
+    <div style="font-size:10px;color:var(--text-dim);margin-top:4px">Empresa · Síndico · Implantação · Operação · Preço</div>
+    <div class="overall-pros-cons">
+      <div class="pros"><strong>✓ Pontos fortes</strong>53 implantações complexas<br>Maior valor recuperado (R$ 15M)<br>Melhor apólice (R$ 5M)<br>Sistema próprio Advanced<br>Jurídico + engenharia inclusos<br>Preço competitivo na oper. normal</div>
+      <div class="cons"><strong>✗ Pontos fracos</strong>SLA declarado de 75% (mais baixo)<br>Exp. c/ Even menos detalhada<br>Perfil do síndico a confirmar<br>Valores do síndico não declarados</div>
+    </div>
+    <div class="verdict">Combina a robustez da empresa Advanced (53 implantações, R$ 15M recuperados, apólice de R$ 5M, sistema próprio) com um síndico profissional. O preço na operação normal é o segundo mais competitivo. Ponto de atenção: SLA de 75% e perfil do síndico a ser confirmado junto à empresa.</div>
+  </div>
+
+  <!-- Tech -->
+  <div class="overall-card tech">
+    <div class="overall-header">
+      <div>
+        <span class="badge badge-tech" style="margin-bottom:6px;display:inline-block">Tech Sindicatura</span>
+        <div class="overall-name">Tech Sindicatura</div>
+        <div style="font-size:11px;color:var(--text-muted)">Empresa + Síndica profissional (sócia)</div>
+      </div>
+      <div style="text-align:right">
+        <div class="overall-score" style="color:var(--tech)">6,8</div>
+        <div class="overall-score-label">nota geral /10</div>
+      </div>
+    </div>
+    <div class="mini-bar">
+      <div class="mini-seg" style="background:#0EA5E966;flex:3" title="Empresa 3/5"></div>
+      <div class="mini-seg" style="background:#0EA5E988;flex:4" title="Síndico 4/5"></div>
+      <div class="mini-seg" style="background:var(--tech);flex:5" title="Implantação Even 5/5"></div>
+      <div class="mini-seg" style="background:#0EA5E966;flex:3" title="Operação 3/5"></div>
+      <div class="mini-seg" style="background:var(--tech);flex:4" title="Preço 4/5"></div>
+    </div>
+    <div style="font-size:10px;color:var(--text-dim);margin-top:4px">Empresa · Síndico · Exp.Even · Operação · Preço</div>
+    <div class="overall-pros-cons">
+      <div class="pros"><strong>✓ Pontos fortes</strong>Melhor histórico c/ Even (Modo, RED)<br>Contato direto c/ diretoria Even<br>Síndica sócia = comprometimento alto<br>Preço competitivo<br>Casos reais bem documentados</div>
+      <div class="cons"><strong>✗ Pontos fracos</strong>Empresa jovem (2020), 12 cond. apenas<br>8–12h/sem rampagem é muito pouco<br>Jurídico/engenharia não inclusos<br>Apólice fraca (R$ 1M)<br>1 síndica para 12 condomínios</div>
+    </div>
+    <div class="verdict">Empresa mais jovem da seleção (CNPJ 2020), mas síndica com 8 anos de atuação. Destaque pelo relacionamento direto com a diretoria de AT da Even — casos concretos com Modo Ipiranga, RED e Arte Vila Mariana. Dedicação de 8–12h/semana na rampagem está abaixo das demais propostas. Jurídico e engenharia não estão inclusos no pacote.</div>
+  </div>
+
+  <!-- Advanced Renata -->
+  <div class="overall-card adv">
+    <div class="overall-header">
+      <div>
+        <span class="badge badge-adv" style="margin-bottom:6px;display:inline-block">Renata Murtinho</span>
+        <div class="overall-name">Renata Murtinho</div>
+        <div style="font-size:11px;color:var(--text-muted)">Moradora do cond. + suporte Advanced</div>
+      </div>
+      <div style="text-align:right">
+        <div class="overall-score" style="color:var(--adv)">5,8</div>
+        <div class="overall-score-label">nota geral /10</div>
+      </div>
+    </div>
+    <div class="mini-bar">
+      <div class="mini-seg" style="background:var(--adv);flex:5" title="Empresa 5/5"></div>
+      <div class="mini-seg" style="background:#EA580C33;flex:1" title="Síndico 1/5"></div>
+      <div class="mini-seg" style="background:#EA580C66;flex:3" title="Implantação 3/5"></div>
+      <div class="mini-seg" style="background:#EA580C88;flex:4" title="Operação 4/5"></div>
+      <div class="mini-seg" style="background:#EA580C33;flex:2" title="Preço 2/5"></div>
+    </div>
+    <div style="font-size:10px;color:var(--text-dim);margin-top:4px">Empresa · Síndico · Implantação · Operação · Preço</div>
+    <div class="overall-pros-cons">
+      <div class="pros"><strong>✓ Pontos fortes</strong>Mora no cond. — conhece os problemas<br>Atuando junto à gestão desde o início<br>Empresa Advanced: 53 implantações<br>Maior valor recuperado (R$ 15M)<br>Melhor apólice (R$ 5M)<br>Dedicação exclusiva no 1º ano<br>Sistema e metodologia avançados</div>
+      <div class="cons"><strong>✗ Pontos fracos</strong>Sem experiência prévia como síndica<br>SLA Advanced de 75% (mais baixo)<br>Dependência total da Advanced p/ técnico<br>Potencial conflito de interesses<br>Preço elevado vs. capacidade individual</div>
+    </div>
+    <div class="verdict">Renata é moradora do condomínio e vem acompanhando os problemas da gestão desde o início — conhecimento contextual que diferencia esta proposta das demais. A estrutura operacional e técnica seria provida pela Advanced (53 implantações, R$ 15M recuperados, apólice R$ 5M). O ponto de atenção central é a ausência de experiência prévia como síndica profissional, que aumenta a dependência do suporte da empresa para decisões técnicas e de crise.</div>
+  </div>
+
+  <!-- SindicaturaSP -->
+  <div class="overall-card sp">
+    <div class="overall-header">
+      <div>
+        <span class="badge badge-sp" style="margin-bottom:6px;display:inline-block">SindicaturaSP</span>
+        <div class="overall-name">SindicaturaSP</div>
+        <div style="font-size:11px;color:var(--text-muted)">Empresa + Síndico profissional (PJ)</div>
+      </div>
+      <div style="text-align:right">
+        <div class="overall-score" style="color:var(--sp)">5,2</div>
+        <div class="overall-score-label">nota geral /10</div>
+      </div>
+    </div>
+    <div class="mini-bar">
+      <div class="mini-seg" style="background:#8B5CF633;flex:2" title="Empresa 2/5"></div>
+      <div class="mini-seg" style="background:#8B5CF666;flex:3" title="Síndico 3/5"></div>
+      <div class="mini-seg" style="background:#8B5CF633;flex:2" title="Implantação 2/5"></div>
+      <div class="mini-seg" style="background:#8B5CF633;flex:2" title="Operação 2/5"></div>
+      <div class="mini-seg" style="background:var(--sp);flex:5" title="Preço 5/5"></div>
+    </div>
+    <div style="font-size:10px;color:var(--text-dim);margin-top:4px">Empresa · Síndico · Implantação · Operação · Preço</div>
+    <div class="overall-pros-cons">
+      <div class="pros"><strong>✓ Pontos fortes</strong>Preço mais baixo (R$ 8.300)<br>Alta dedicação declarada (40h/sem)<br>Jurídico + engenharia inclusos<br>Síndico com 15 anos de experiência</div>
+      <div class="cons"><strong>✗ Pontos fracos</strong>Empresa muito pequena (4 cond.)<br>2 implantações complexas apenas<br>Zero exp. com Even em implantação<br>Backoffice de 2 pessoas<br>Sem funcionário exclusivo<br>Inconsistências na proposta</div>
+    </div>
+    <div class="verdict">Empresa mais recente da seleção (2022), com carteira de apenas 4 condomínios e 2 implantações complexas registradas. Suporte jurídico, de engenharia e auditor estão inclusos no pacote. Dedicação declarada de 40h/semana na rampagem é a mais alta. Sem experiência registrada em implantação com a Even. Preço mais baixo da seleção.</div>
+  </div>
+
+  <!-- Ranking final -->
+  <div class="cat-header">Ranking por nota geral</div>
+  <div class="card">
+    <div style="font-size:13px;line-height:2.2">
+      <div><span style="color:var(--gf);font-weight:800">🥇 GF Consultoria — 8,1</span></div>
+      <div><span style="color:var(--adv-pro);font-weight:800">🥈 Advanced + Síndico Profissional — 7,9</span></div>
+      <div><span style="color:var(--tech);font-weight:800">🥉 Tech Sindicatura — 6,8</span></div>
+      <div><span style="color:var(--adv);font-weight:700">4. Renata Murtinho — 5,8</span></div>
+      <div><span style="color:var(--sp);font-weight:700">5. SindicaturaSP — 5,2</span></div>
+    </div>
+    <div style="font-size:11px;color:var(--text-dim);margin-top:10px;line-height:1.7">Nota ponderada: experiência em implantações complexas (30%), perfil do síndico (25%), experiência com a Even (15%), modelo operacional (20%), preço (10%).</div>
+  </div>
+
+</section>
+
+<script>
+  function switchTab(id) {
+    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    const tab = document.querySelector(`.nav-tab[data-target="${id}"]`);
+    if (tab) {
+      tab.classList.add('active');
+      tab.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  document.querySelectorAll('.nav-tab').forEach(tab => {
+    tab.addEventListener('click', () => switchTab(tab.dataset.target));
+  });
+
+  function toggleAcc(header) {
+    const item = header.closest('.acc-item');
+    item.classList.toggle('open');
+  }
+</script>
+
+</body>
+</html>
