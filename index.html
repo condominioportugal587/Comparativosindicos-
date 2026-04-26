@@ -565,39 +565,27 @@
   <button class="nav-tab" data-target="operacao">Operação</button>
   <button class="nav-tab" data-target="preco">Preço</button>
   <button class="nav-tab" data-target="avaliacao">Avaliação Final</button>
+  <button class="nav-tab" data-target="desclassificadas">Desclassificadas</button>
 </div>
 
 <!-- ===================== VISÃO GERAL ===================== -->
 <section id="visao-geral" class="active">
   <div class="section-title">Visão Geral</div>
-  <div class="section-desc">5 propostas recebidas. Toque em qualquer card para ver detalhes da empresa na aba correspondente.</div>
+  <div class="section-desc">3 propostas em concorrência após avaliação do Grupo de Trabalho.</div>
 
   <div class="alert alert-blue">
     <strong>Contexto importante:</strong> o Portugal 587 é um condomínio novo, em fase de implantação, com múltiplos setores (residencial, studios, lojas, offices) e muitas unidades. Experiência em <strong>implantações complexas</strong> e com histórico junto à <strong>Even Construtora</strong> são diferenciais importantes para o síndico escolhido.
   </div>
 
   <div class="alert alert-yellow">
-    <strong>Atenção:</strong> a proposta da <strong>Renata Murtinho</strong> é de uma moradora, sem experiência como síndica profissional. O suporte operacional viria da empresa Advanced. A <strong>5ª proposta</strong> contempla a mesma empresa Advanced, mas com um <strong>síndico profissional</strong> como responsável.
+    <strong>Processo seletivo:</strong> o Grupo de Trabalho do condomínio realizou entrevistas com os candidatos e coletou feedback de moradores de condomínios atendidos pelas empresas. Após essa avaliação, as propostas da <strong>GF Consultoria</strong> e da <strong>SindicaturaSP</strong> foram desclassificadas. <span style="text-decoration:underline;cursor:pointer;color:var(--primary-light)" onclick="switchTab('desclassificadas')">Ver detalhes →</span>
+  </div>
+
+  <div class="alert alert-yellow">
+    <strong>Atenção:</strong> a proposta da <strong>Renata Murtinho</strong> é de uma moradora, sem experiência como síndica profissional. O suporte operacional viria da empresa <strong>Advanced</strong>. Esta mesma empresa já estava concorrendo com uma candidatura direta e mantém a proposta de um <strong>síndico profissional</strong> como responsável.
   </div>
 
   <div class="overview-list">
-
-    <div class="overview-card gf" onclick="switchTab('avaliacao')">
-      <div class="ov-header">
-        <div>
-          <div class="ov-name">GF Consultoria</div>
-          <div class="ov-type">Empresa + Síndico profissional</div>
-        </div>
-        <div style="text-align:right">
-          <div class="ov-score-big" style="color:var(--gf)">8,1</div>
-          <div class="ov-score-label">nota /10</div>
-        </div>
-      </div>
-      <div class="ov-footer">
-        <div class="ov-price">R$ 22.880 <span>ramp.</span> / R$ 16.640 <span>normal</span></div>
-        <div class="ov-tag tag-green">Maior experiência</div>
-      </div>
-    </div>
 
     <div class="overview-card adv-pro" onclick="switchTab('avaliacao')">
       <div class="ov-header">
@@ -623,13 +611,13 @@
           <div class="ov-type">Empresa + Síndica profissional</div>
         </div>
         <div style="text-align:right">
-          <div class="ov-score-big" style="color:var(--tech)">6,8</div>
+          <div class="ov-score-big" style="color:var(--tech)">7,2</div>
           <div class="ov-score-label">nota /10</div>
         </div>
       </div>
       <div class="ov-footer">
         <div class="ov-price">R$ 13.000 <span>/ mês</span></div>
-        <div class="ov-tag tag-yellow">Exp. com Even ✓</div>
+        <div class="ov-tag tag-yellow">Melhor exp. com Even ✓</div>
       </div>
     </div>
 
@@ -640,7 +628,7 @@
           <div class="ov-type">Moradora do cond. + suporte Advanced</div>
         </div>
         <div style="text-align:right">
-          <div class="ov-score-big" style="color:var(--adv)">5,8</div>
+          <div class="ov-score-big" style="color:var(--adv)">6,2</div>
           <div class="ov-score-label">nota /10</div>
         </div>
       </div>
@@ -650,82 +638,57 @@
       </div>
     </div>
 
-    <div class="overview-card sp" onclick="switchTab('avaliacao')">
-      <div class="ov-header">
-        <div>
-          <div class="ov-name">SindicaturaSP</div>
-          <div class="ov-type">Empresa + Síndico profissional</div>
-        </div>
-        <div style="text-align:right">
-          <div class="ov-score-big" style="color:var(--sp)">5,2</div>
-          <div class="ov-score-label">nota /10</div>
-        </div>
-      </div>
-      <div class="ov-footer">
-        <div class="ov-price">R$ 8.300 <span>/ mês</span></div>
-        <div class="ov-tag tag-red">Menor experiência</div>
-      </div>
-    </div>
-
   </div>
 
   <div class="cat-header">Quadro resumo</div>
   <div class="sr-table">
-    <div class="sr-thead">
+    <div class="sr-thead" style="grid-template-columns: 90px repeat(3, 1fr);">
       <div class="sr-th sr-th-label"></div>
-      <div class="sr-th"><span class="badge badge-gf">GF</span></div>
       <div class="sr-th"><span class="badge badge-adv-pro">Adv+</span></div>
       <div class="sr-th"><span class="badge badge-tech">Tech</span></div>
       <div class="sr-th"><span class="badge badge-adv">Renata</span></div>
-      <div class="sr-th"><span class="badge badge-sp">SP</span></div>
     </div>
-    <div class="sr-tr">
+    <div class="sr-tr" style="grid-template-columns: 90px repeat(3, 1fr);">
       <div class="sr-td sr-td-label">Empresa</div>
       <div class="sr-td"><span class="sr-dots"><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span></span></div>
-      <div class="sr-td"><span class="sr-dots"><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span></span></div>
       <div class="sr-td"><span class="sr-dots"><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-off"></span><span class="sr-dot sr-dot-off"></span></span></div>
       <div class="sr-td"><span class="sr-dots"><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span></span></div>
-      <div class="sr-td"><span class="sr-dots"><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-off"></span><span class="sr-dot sr-dot-off"></span><span class="sr-dot sr-dot-off"></span></span></div>
     </div>
-    <div class="sr-tr">
+    <div class="sr-tr" style="grid-template-columns: 90px repeat(3, 1fr);">
       <div class="sr-td sr-td-label">Síndico</div>
-      <div class="sr-td"><span class="sr-dots"><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span></span></div>
       <div class="sr-td"><span class="sr-dots"><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-off"></span></span></div>
       <div class="sr-td"><span class="sr-dots"><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-off"></span></span></div>
       <div class="sr-td"><span class="sr-dots"><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-off"></span><span class="sr-dot sr-dot-off"></span><span class="sr-dot sr-dot-off"></span></span></div>
-      <div class="sr-td"><span class="sr-dots"><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-off"></span><span class="sr-dot sr-dot-off"></span></span></div>
     </div>
-    <div class="sr-tr">
+    <div class="sr-tr" style="grid-template-columns: 90px repeat(3, 1fr);">
       <div class="sr-td sr-td-label">Implantação</div>
-      <div class="sr-td"><span class="sr-dots"><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span></span></div>
       <div class="sr-td"><span class="sr-dots"><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-off"></span></span></div>
       <div class="sr-td"><span class="sr-dots"><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-off"></span></span></div>
       <div class="sr-td"><span class="sr-dots"><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-off"></span></span></div>
-      <div class="sr-td"><span class="sr-dots"><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-off"></span><span class="sr-dot sr-dot-off"></span><span class="sr-dot sr-dot-off"></span></span></div>
     </div>
-    <div class="sr-tr">
+    <div class="sr-tr" style="grid-template-columns: 90px repeat(3, 1fr);">
       <div class="sr-td sr-td-label">Operação</div>
       <div class="sr-td"><span class="sr-dots"><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span></span></div>
-      <div class="sr-td"><span class="sr-dots"><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span></span></div>
       <div class="sr-td"><span class="sr-dots"><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-off"></span><span class="sr-dot sr-dot-off"></span></span></div>
       <div class="sr-td"><span class="sr-dots"><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span></span></div>
-      <div class="sr-td"><span class="sr-dots"><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-off"></span><span class="sr-dot sr-dot-off"></span></span></div>
     </div>
-    <div class="sr-tr sr-tr-price">
+    <div class="sr-tr" style="grid-template-columns: 90px repeat(3, 1fr);">
+      <div class="sr-td sr-td-label">Entrev. GT + FB</div>
+      <div class="sr-td"><span class="sr-dots"><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-off"></span></span></div>
+      <div class="sr-td"><span class="sr-dots"><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span></span></div>
+      <div class="sr-td"><span class="sr-dots"><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-off"></span></span></div>
+    </div>
+    <div class="sr-tr sr-tr-price" style="grid-template-columns: 90px repeat(3, 1fr);">
       <div class="sr-td sr-td-label">Rampagem</div>
-      <div class="sr-td sr-val">R$22,9k</div>
       <div class="sr-td sr-val">R$19k</div>
       <div class="sr-td sr-val">R$13k</div>
       <div class="sr-td sr-val">R$18,5k</div>
-      <div class="sr-td sr-val">R$8,3k</div>
     </div>
-    <div class="sr-tr sr-tr-price">
+    <div class="sr-tr sr-tr-price" style="grid-template-columns: 90px repeat(3, 1fr);">
       <div class="sr-td sr-td-label">Normal</div>
-      <div class="sr-td sr-val">R$16,6k</div>
       <div class="sr-td sr-val">R$14,6k</div>
       <div class="sr-td sr-val">R$13k</div>
       <div class="sr-td sr-val">R$18,5k</div>
-      <div class="sr-td sr-val">R$8,3k</div>
     </div>
   </div>
   <div class="sr-legend">
@@ -734,7 +697,7 @@
     <span class="sr-dots"><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-off"></span><span class="sr-dot sr-dot-off"></span></span> Moderada &nbsp;
     <span class="sr-dots"><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-on"></span><span class="sr-dot sr-dot-off"></span><span class="sr-dot sr-dot-off"></span><span class="sr-dot sr-dot-off"></span></span> Baixa
   </div>
-  <div style="font-size:10px;color:var(--text-dim);padding:2px 0 8px">Ordenado por nota geral. Passe o dedo sobre os pontos para ver o detalhe.</div>
+  <div style="font-size:10px;color:var(--text-dim);padding:2px 0 8px">Ordenado por nota geral. Entrev. GT + FB = entrevistas do grupo de trabalho do condomínio + feedback de clientes das empresas.</div>
 </section>
 
 <!-- ===================== EMPRESA ===================== -->
@@ -769,97 +732,6 @@
       </div>
     </div>
   </div>
-
-  <!-- SindicaturaSP -->
-  <div class="acc-item">
-    <div class="acc-header" onclick="toggleAcc(this)">
-      <div class="acc-header-left">
-        <span class="badge badge-sp">SindicaturaSP</span>
-        <span class="acc-title">Empresa pequena, síndico como pessoa jurídica</span>
-      </div>
-      <span class="acc-arrow">▼</span>
-    </div>
-    <div class="acc-body">
-      <table class="detail-table">
-        <tr><td>Fundação</td><td>2022</td></tr>
-        <tr><td>Carteira</td><td>4 condomínios</td></tr>
-        <tr><td>Implantações complexo</td><td>2 implantações / 330 unidades</td></tr>
-        <tr><td>Experiência Even</td><td>Parcial: Campo Belo (ação em andamento, tratativas de vício oculto)</td></tr>
-        <tr><td>Valor recuperado</td><td>Não informado — não aplicou recuperação</td></tr>
-        <tr><td>SLA declarado</td><td>95%</td></tr>
-        <tr><td>Equipe total</td><td>2 pessoas (síndico técnico + síndico administrativo)</td></tr>
-      </table>
-      <div style="margin-top:10px;">
-        <div class="score-row"><span class="score-label">Porte e maturidade</span><span class="rating rating-2">Baixo</span></div>
-        <div class="score-row"><span class="score-label">Experiência c/ Even</span><span class="rating rating-2">Limitada</span></div>
-        <div class="score-row"><span class="score-label">Volume de implantações</span><span class="rating rating-2">Baixo</span></div>
-        <div class="score-row"><span class="score-label">Estrutura de backoffice</span><span class="rating rating-2">Insuficiente</span></div>
-      </div>
-      <div class="alert alert-yellow" style="margin-top:10px; margin-bottom:0">
-        <strong>Risco:</strong> equipe de 2 pessoas para um condomínio complexo em implantação é muito enxuta. Sem funcionário exclusivo e sem franquia de horas adicional.
-      </div>
-    </div>
-  </div>
-
-  <!-- GF -->
-  <div class="acc-item">
-    <div class="acc-header" onclick="toggleAcc(this)">
-      <div class="acc-header-left">
-        <span class="badge badge-gf">GF Consultoria</span>
-        <span class="acc-title">Maior empresa. Presença desde 2005</span>
-      </div>
-      <span class="acc-arrow">▼</span>
-    </div>
-    <div class="acc-body">
-      <table class="detail-table">
-        <tr><td>Fundação</td><td>2005</td></tr>
-        <tr><td>Carteira</td><td>96 condomínios</td></tr>
-        <tr><td>Implantações complexo</td><td>26 implantações / 300–500 unid. cada; 56 implantações totais</td></tr>
-        <tr><td>Experiência Even</td><td>56 implantações + 18 operações (Even e outras grandes construtoras)</td></tr>
-        <tr><td>Valor recuperado (5 anos)</td><td>R$ 5 milhões</td></tr>
-        <tr><td>SLA declarado</td><td>100% (requer validação)</td></tr>
-        <tr><td>Equipe no condomínio</td><td>Sócio + 4 pessoas da GF dedicadas à operação</td></tr>
-      </table>
-      <div style="margin-top:10px;">
-        <div class="score-row"><span class="score-label">Porte e maturidade</span><span class="rating rating-5">Excelente</span></div>
-        <div class="score-row"><span class="score-label">Experiência c/ Even</span><span class="rating rating-5">Excelente</span></div>
-        <div class="score-row"><span class="score-label">Volume de implantações</span><span class="rating rating-5">Alto</span></div>
-        <div class="score-row"><span class="score-label">Estrutura de backoffice</span><span class="rating rating-4">Boa</span></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Advanced Renata -->
-  <div class="acc-item">
-    <div class="acc-header" onclick="toggleAcc(this)">
-      <div class="acc-header-left">
-        <span class="badge badge-adv">Renata Murtinho</span>
-        <span class="acc-title">Grande empresa, síndica moradora sem exp. profissional</span>
-      </div>
-      <span class="acc-arrow">▼</span>
-    </div>
-    <div class="acc-body">
-      <table class="detail-table">
-        <tr><td>Fundação</td><td>2011</td></tr>
-        <tr><td>Carteira</td><td>45 próprios + 150 via rede de franqueados</td></tr>
-        <tr><td>Implantações complexo (empresa)</td><td>53 implantações (exemplos: Cittyplex 872 un., Parque da Cidade 612 un., Villaggio 980 un.)</td></tr>
-        <tr><td>Experiência Even</td><td>3 implantações + 10 operações (não detalha Even especificamente)</td></tr>
-        <tr><td>Valor recuperado (5 anos)</td><td>R$ 15 milhões</td></tr>
-        <tr><td>SLA declarado</td><td>75% (o mais baixo)</td></tr>
-        <tr><td>Equipe no condomínio</td><td>1 pessoa sênior + 1 auxiliar em horário comercial</td></tr>
-      </table>
-      <div style="margin-top:10px;">
-        <div class="score-row"><span class="score-label">Porte e maturidade da empresa</span><span class="rating rating-5">Excelente</span></div>
-        <div class="score-row"><span class="score-label">Experiência c/ Even</span><span class="rating rating-3">Moderada</span></div>
-        <div class="score-row"><span class="score-label">Volume de implantações</span><span class="rating rating-5">Alto</span></div>
-        <div class="score-row"><span class="score-label">Estrutura de backoffice</span><span class="rating rating-3">Adequada</span></div>
-      </div>
-      <div class="alert alert-yellow" style="margin-top:10px;margin-bottom:0">
-        <strong>Diferencial:</strong> Renata Murtinho é moradora do condomínio e vem acompanhando os problemas da gestão desde o início, o que representa um nível de conhecimento contextual que síndicos externos não têm. O suporte operacional e técnico viria integralmente da empresa Advanced. Ponto de atenção: sem experiência prévia como síndica profissional.
-      </div>
-    </div>
-  </div>
-
   <!-- Advanced Pro -->
   <div class="acc-item">
     <div class="acc-header" onclick="toggleAcc(this)">
@@ -871,12 +743,35 @@
     </div>
     <div class="acc-body">
       <table class="detail-table">
-        <tr><td>Empresa</td><td>Advanced — mesmos dados de porte, carteira e metodologia</td></tr>
-        <tr><td>Síndico</td><td>Profissional indicado pela Advanced, com experiência em implantações complexas</td></tr>
-        <tr><td>Implantações complexo (empresa)</td><td>53 (idem Advanced)</td></tr>
-        <tr><td>SLA declarado</td><td>75% (idem Advanced)</td></tr>
-        <tr><td>Valor recuperado (5 anos)</td><td>R$ 15 milhões (idem Advanced)</td></tr>
-        <tr><td>Equipe</td><td>1 sênior + 1 auxiliar (idem) + síndico profissional dedicado</td></tr>
+        <tr><td>Fundação</td><td>2011</td></tr>
+        <tr><td>Carteira</td><td>45 próprios + 150 via rede de franqueados</td></tr>
+        <tr><td>Implantações complexo</td><td>53 implantações (exemplos: Cittyplex 872 un., Parque da Cidade 612 un., Villaggio 980 un.)</td></tr>
+        <tr><td>Experiência Even</td><td>3 implantações + 10 operações</td></tr>
+        <tr><td>Valor recuperado (5 anos)</td><td>R$ 15 milhões</td></tr>
+        <tr><td>SLA declarado</td><td>75%</td></tr>
+        <tr><td>Equipe no condomínio</td><td>1 sênior + 1 auxiliar + síndico profissional dedicado</td></tr>
+      </table>
+      <div style="margin-top:10px;">
+        <div class="score-row"><span class="score-label">Porte e maturidade da empresa</span><span class="rating rating-5">Excelente</span></div>
+        <div class="score-row"><span class="score-label">Experiência c/ Even</span><span class="rating rating-3">Moderada</span></div>
+        <div class="score-row"><span class="score-label">Volume de implantações</span><span class="rating rating-5">Alto</span></div>
+        <div class="score-row"><span class="score-label">Estrutura de backoffice</span><span class="rating rating-4">Boa</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Advanced Renata -->
+  <div class="acc-item">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="badge badge-adv">Renata Murtinho</span>
+        <span class="acc-title">Síndica Moradora</span>
+      </div>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="acc-body">
+      <table class="detail-table">
+        <tr><td>Modelo</td><td>Contratação direta de síndica moradora com assessoria Advanced. Neste caso, o síndico contrata os serviços de assessoria da empresa. Em comparação à proposta direta da Advanced, neste modelo não há a possibilidade de substituição do síndico apontado pela empresa.</td></tr>
       </table>
       <div style="margin-top:10px;">
         <div class="score-row"><span class="score-label">Porte e maturidade da empresa</span><span class="rating rating-5">Excelente</span></div>
@@ -924,74 +819,14 @@
         <div class="score-row"><span class="score-label">Experiência c/ Even</span><span class="rating rating-5">Excelente</span></div>
         <div class="score-row"><span class="score-label">Dedicação na rampagem</span><span class="rating rating-2">Baixa (8–12h)</span></div>
         <div class="score-row"><span class="score-label">Vínculo com empresa</span><span class="rating rating-5">Sócia</span></div>
+        <div class="score-row"><span class="score-label">Avaliação GT</span><span class="rating rating-5">Ótima</span></div>
+        <div class="score-row"><span class="score-label">Feedback de clientes</span><span class="rating rating-4">Bom</span></div>
       </div>
       <div class="alert alert-yellow" style="margin-top:10px;margin-bottom:0">
         <strong>Ponto de atenção:</strong> 12 condomínios para uma síndica que é sócia única. 8–12h/semana no período de rampagem pode ser insuficiente para um condomínio deste porte.
       </div>
     </div>
   </div>
-
-  <!-- SP -->
-  <div class="acc-item">
-    <div class="acc-header" onclick="toggleAcc(this)">
-      <div class="acc-header-left">
-        <span class="badge badge-sp">SP</span>
-        <span class="acc-title">Carlos Morais — Síndico PJ, 15 anos</span>
-      </div>
-      <span class="acc-arrow">▼</span>
-    </div>
-    <div class="acc-body">
-      <table class="detail-table">
-        <tr><td>Tipo</td><td>PJ (não CLT)</td></tr>
-        <tr><td>Tempo na empresa</td><td>"Mais de 15 anos" como síndico (empresa fundada em 2022 — inconsistência)</td></tr>
-        <tr><td>Implantações complexo</td><td>2 implantações / 330 unidades</td></tr>
-        <tr><td>Condomínios em gestão</td><td>4 condomínios</td></tr>
-        <tr><td>Distância ao condomínio</td><td>3 km</td></tr>
-        <tr><td>Horas/semana rampagem</td><td>40h+ (declarado como presença integral)</td></tr>
-        <tr><td>Horas/semana operação</td><td>12h+</td></tr>
-        <tr><td>Exp. c/ Even</td><td>Parcial: 1 condomínio no Campo Belo (ação judicial em andamento)</td></tr>
-        <tr><td>Cobertura de ausências</td><td>"Síndico não se ausenta" — sem plano B formal</td></tr>
-      </table>
-      <div style="margin-top:10px;">
-        <div class="score-row"><span class="score-label">Experiência geral</span><span class="rating rating-3">Moderada</span></div>
-        <div class="score-row"><span class="score-label">Experiência c/ Even</span><span class="rating rating-2">Limitada</span></div>
-        <div class="score-row"><span class="score-label">Dedicação na rampagem</span><span class="rating rating-5">Alta (40h)</span></div>
-        <div class="score-row"><span class="score-label">Vínculo com empresa</span><span class="rating rating-3">PJ</span></div>
-      </div>
-      <div class="alert alert-yellow" style="margin-top:10px;margin-bottom:0">
-        <strong>Inconsistência:</strong> afirma "mais de 15 anos" mas a empresa foi fundada em 2022. Apenas 2 implantações complexas, nenhuma com a Even em implantação. Ausência de plano de contingência ("síndico não se ausenta" não é um plano).
-      </div>
-    </div>
-  </div>
-
-  <!-- GF -->
-  <div class="acc-item">
-    <div class="acc-header" onclick="toggleAcc(this)">
-      <div class="acc-header-left">
-        <span class="badge badge-gf">GF</span>
-        <span class="acc-title">Sócio da GF, experiência extensa</span>
-      </div>
-      <span class="acc-arrow">▼</span>
-    </div>
-    <div class="acc-body">
-      <table class="detail-table">
-        <tr><td>Tipo</td><td>Sócio da GF (equipe própria)</td></tr>
-        <tr><td>Tempo na empresa</td><td>Desde a fundação (2005) — 21 anos</td></tr>
-        <tr><td>Implantações complexo</td><td>26 implantações / 300–500 un. cada</td></tr>
-        <tr><td>Condomínios sob gestão</td><td>Além do síndico, 4 pessoas da GF dedicadas ao condomínio</td></tr>
-        <tr><td>Distância ao condomínio</td><td>3 km</td></tr>
-        <tr><td>Horas/semana rampagem</td><td>20h síndico + equipe complementar</td></tr>
-        <tr><td>Horas/semana operação</td><td>12h síndico</td></tr>
-        <tr><td>Exp. c/ Even</td><td>56 implantações + 18 operações</td></tr>
-        <tr><td>Cobertura de ausências</td><td>GF como empresa garante continuidade — não depende de uma pessoa</td></tr>
-      </table>
-      <div style="margin-top:10px;">
-        <div class="score-row"><span class="score-label">Experiência geral</span><span class="rating rating-5">Excelente</span></div>
-        <div class="score-row"><span class="score-label">Experiência c/ Even</span><span class="rating rating-5">Excelente</span></div>
-        <div class="score-row"><span class="score-label">Dedicação na rampagem</span><span class="rating rating-4">Boa (20h + equipe)</span></div>
-        <div class="score-row"><span class="score-label">Vínculo com empresa</span><span class="rating rating-5">Sócio</span></div>
-      </div>
-    </div>
   </div>
 
   <!-- Advanced Renata -->
@@ -1020,6 +855,8 @@
         <div class="score-row"><span class="score-label">Experiência c/ Even</span><span class="rating rating-1">Nenhuma</span></div>
         <div class="score-row"><span class="score-label">Dedicação na rampagem</span><span class="rating rating-4">Alta (20h+)</span></div>
         <div class="score-row"><span class="score-label">Vínculo com empresa</span><span class="rating rating-1">Moradora</span></div>
+        <div class="score-row"><span class="score-label">Avaliação GT</span><span class="rating rating-4">Boa</span></div>
+        <div class="score-row"><span class="score-label">Feedback de clientes</span><span class="rating rating-3">Não disponível</span></div>
       </div>
       <div class="alert alert-yellow" style="margin-top:10px;margin-bottom:0">
         <strong>Contexto:</strong> Renata mora no condomínio e vem acompanhando os problemas desde o início da gestão, o que representa familiaridade real com a realidade do Portugal 587. Todo o suporte técnico, operacional e jurídico viria da Advanced. O ponto a ponderar é a ausência de experiência prévia como síndica profissional em outros condomínios.
@@ -1052,6 +889,8 @@
         <div class="score-row"><span class="score-label">Experiência c/ Even</span><span class="rating rating-3">A confirmar</span></div>
         <div class="score-row"><span class="score-label">Dedicação na rampagem</span><span class="rating rating-4">Boa (20h)</span></div>
         <div class="score-row"><span class="score-label">Vínculo com empresa</span><span class="rating rating-4">Profissional</span></div>
+        <div class="score-row"><span class="score-label">Avaliação GT</span><span class="rating rating-4">Boa</span></div>
+        <div class="score-row"><span class="score-label">Feedback de clientes</span><span class="rating rating-4">Bom</span></div>
       </div>
     </div>
   </div>
@@ -1073,22 +912,18 @@
     <div class="comp-item-header">
       <span class="comp-item-label">Implantações complexo/multiuso (empresa)</span>
     </div>
-    <div class="comp-row"><div class="comp-co"><span class="badge badge-gf">GF</span></div><div class="comp-val">26 implantações / 300–500 un. (+ 56 no total com outras construtoras)</div><div class="comp-rating"><span class="rating rating-5">Excelente</span></div></div>
     <div class="comp-row"><div class="comp-co"><span class="badge badge-adv-pro">Adv+ Pro</span></div><div class="comp-val">53 implantações pela empresa Advanced (Cittyplex 872 un., Parque da Cidade 612 un., Villaggio 980 un.)</div><div class="comp-rating"><span class="rating rating-5">Excelente</span></div></div>
     <div class="comp-row"><div class="comp-co"><span class="badge badge-adv">Renata</span></div><div class="comp-val">53 implantações pela empresa Advanced — mesma base da proposta Adv+. A síndica indicada (Renata) não tem implantações como responsável.</div><div class="comp-rating"><span class="rating rating-4">Boa (empresa)</span></div></div>
     <div class="comp-row"><div class="comp-co"><span class="badge badge-tech">Tech</span></div><div class="comp-val">5 implantações / 1.461 unidades totais</div><div class="comp-rating"><span class="rating rating-3">Moderada</span></div></div>
-    <div class="comp-row"><div class="comp-co"><span class="badge badge-sp">SindicSP</span></div><div class="comp-val">2 implantações / 330 unidades</div><div class="comp-rating"><span class="rating rating-2">Baixa</span></div></div>
   </div>
 
   <div class="comp-item">
     <div class="comp-item-header">
       <span class="comp-item-label">Experiência específica com a Even</span>
     </div>
-    <div class="comp-row"><div class="comp-co"><span class="badge badge-gf">GF</span></div><div class="comp-val">56 implantações + 18 operações com Even e outras grandes construtoras. Casos de judicialização bem documentados.</div><div class="comp-rating"><span class="rating rating-5">Excelente</span></div></div>
     <div class="comp-row"><div class="comp-co"><span class="badge badge-tech">Tech</span></div><div class="comp-val">Modo Ipiranga (240 obras simultâneas), RED (garantia após 7 anos), Arte Vila Mariana (vício Otis). Relacionamento com toda a diretoria de AT da Even.</div><div class="comp-rating"><span class="rating rating-5">Excelente</span></div></div>
     <div class="comp-row"><div class="comp-co"><span class="badge badge-adv-pro">Adv+ Pro</span></div><div class="comp-val">3 implantações + 10 operações pela Advanced. Even mencionada genericamente; sem casos detalhados específicos.</div><div class="comp-rating"><span class="rating rating-3">Moderada</span></div></div>
     <div class="comp-row"><div class="comp-co"><span class="badge badge-adv">Renata</span></div><div class="comp-val">Mesma base de empresa da proposta Adv+. Renata como moradora acompanhou as tratativas do Portugal 587 com a Even desde o início — conhecimento contextual do condomínio, sem experiência prévia em outros projetos.</div><div class="comp-rating"><span class="rating rating-3">Contextual</span></div></div>
-    <div class="comp-row"><div class="comp-co"><span class="badge badge-sp">SindicSP</span></div><div class="comp-val">1 condomínio Even (Campo Belo) com ação judicial em andamento da gestão anterior. Sem implantação com Even.</div><div class="comp-rating"><span class="rating rating-2">Baixa</span></div></div>
   </div>
 
   <div class="comp-item">
@@ -1096,21 +931,17 @@
       <span class="comp-item-label">Tempo estimado para normalização da operação</span>
     </div>
     <div class="comp-row"><div class="comp-co"><span class="badge badge-tech">Tech</span></div><div class="comp-val">3 meses saindo do estado crítico; 2 anos para operação tranquila. Realista e baseado em experiência real (Modo).</div><div class="comp-rating"><span class="rating rating-5">Realista</span></div></div>
-    <div class="comp-row"><div class="comp-co"><span class="badge badge-gf">GF</span></div><div class="comp-val">18 meses. Planejamento detalhado com Plano Diretor validado com Conselho.</div><div class="comp-rating"><span class="rating rating-4">Estruturado</span></div></div>
     <div class="comp-row"><div class="comp-co"><span class="badge badge-adv-pro">Adv+ Pro</span></div><div class="comp-val">6–8 meses (se previsão orçamentária adequada); 12 meses se precisar redimensionar.</div><div class="comp-rating"><span class="rating rating-3">Otimista</span></div></div>
     <div class="comp-row"><div class="comp-co"><span class="badge badge-adv">Renata</span></div><div class="comp-val">Idem — mesma proposta de empresa. Renata já conhece o estágio atual do condomínio, o que pode acelerar a fase de diagnóstico inicial.</div><div class="comp-rating"><span class="rating rating-3">Otimista</span></div></div>
-    <div class="comp-row"><div class="comp-co"><span class="badge badge-sp">SindicSP</span></div><div class="comp-val">24–30 meses. Baseado em experiência com outros condomínios mistos.</div><div class="comp-rating"><span class="rating rating-3">Realista</span></div></div>
   </div>
 
   <div class="comp-item">
     <div class="comp-item-header">
       <span class="comp-item-label">Metodologia de implantação</span>
     </div>
-    <div class="comp-row"><div class="comp-co"><span class="badge badge-gf">GF</span></div><div class="comp-val">Imersão 360° de 120 dias: análise física, documental e operacional. Plano Diretor validado com Conselho.</div><div class="comp-rating"><span class="rating rating-5">Excelente</span></div></div>
     <div class="comp-row"><div class="comp-co"><span class="badge badge-adv-pro">Adv+ Pro</span></div><div class="comp-val">Metodologia própria Advanced: diagnóstico → estruturação → consolidação. Sistema Advanced incluso. App e digital.</div><div class="comp-rating"><span class="rating rating-4">Boa</span></div></div>
     <div class="comp-row"><div class="comp-co"><span class="badge badge-adv">Renata</span></div><div class="comp-val">Mesma metodologia Advanced. Renata já participou da gestão do condomínio — a curva de aprendizado sobre a realidade do Portugal 587 é menor do que para um síndico externo.</div><div class="comp-rating"><span class="rating rating-4">Boa</span></div></div>
     <div class="comp-row"><div class="comp-co"><span class="badge badge-tech">Tech</span></div><div class="comp-val">Trabalho por setores (portaria, limpeza, zeladoria, chamados). Equipe com papéis definidos. Menos formal, mais prático.</div><div class="comp-rating"><span class="rating rating-3">Moderada</span></div></div>
-    <div class="comp-row"><div class="comp-co"><span class="badge badge-sp">SindicSP</span></div><div class="comp-val">"Processo, cronograma, fluxograma de trabalho e muita comunicação." Genérico, sem detalhes.</div><div class="comp-rating"><span class="rating rating-2">Baixa</span></div></div>
   </div>
 
 </section>
@@ -1123,8 +954,6 @@
   <div class="comp-item">
     <div class="comp-item-header"><span class="comp-item-label">Backoffice e equipe dedicada</span></div>
     <div class="comp-row"><div class="comp-co"><span class="badge badge-tech">Tech</span></div><div class="comp-val">5 pessoas (compras, administrativo, comunicação, sindicância). 7 pessoas para 12 cond. — 0,58 pessoas/cond. Equipe própria.</div><div class="comp-rating"><span class="rating rating-3">3/5</span></div></div>
-    <div class="comp-row"><div class="comp-co"><span class="badge badge-sp">SindicSP</span></div><div class="comp-val">2 pessoas (síndico técnico + administrativo). Sem funcionário exclusivo. Muito enxuto para o porte.</div><div class="comp-rating"><span class="rating rating-1">1/5</span></div></div>
-    <div class="comp-row"><div class="comp-co"><span class="badge badge-gf">GF</span></div><div class="comp-val">3 pessoas PJ (comunicação/compras, atendimento, vistorias técnicas + controladoria) + sócio. Atendem mais 5 cond.</div><div class="comp-rating"><span class="rating rating-4">4/5</span></div></div>
     <div class="comp-row"><div class="comp-co"><span class="badge badge-adv">Renata</span></div><div class="comp-val">1 sênior + 1 auxiliar da Advanced. Renata presente no condomínio como moradora — disponibilidade imediata in loco como diferencial.</div><div class="comp-rating"><span class="rating rating-3">Moderada</span></div></div>
     <div class="comp-row"><div class="comp-co"><span class="badge badge-adv-pro">Adv+Pro</span></div><div class="comp-val">Idem Advanced + síndico profissional dedicado.</div><div class="comp-rating"><span class="rating rating-4">4/5</span></div></div>
   </div>
@@ -1132,8 +961,6 @@
   <div class="comp-item">
     <div class="comp-item-header"><span class="comp-item-label">Suporte jurídico e de engenharia</span></div>
     <div class="comp-row"><div class="comp-co"><span class="badge badge-tech">Tech</span></div><div class="comp-val">Engenharia: empresa parceira (terceirizada, não inclusa no pacote). Jurídico: presente mas não advoga para o cond. Recomenda contratar equipes externas.</div><div class="comp-rating"><span class="rating rating-2">Parcial</span></div></div>
-    <div class="comp-row"><div class="comp-co"><span class="badge badge-sp">SindicSP</span></div><div class="comp-val">Sim — advogado, engenheiro e auditor inclusos.</div><div class="comp-rating"><span class="rating rating-5">Incluso</span></div></div>
-    <div class="comp-row"><div class="comp-co"><span class="badge badge-gf">GF</span></div><div class="comp-val">Jurídico: assessoria extrajudicial. Engenharia: análise de manutenções e apoio nas tratativas com construtora. Ambos inclusos.</div><div class="comp-rating"><span class="rating rating-5">Incluso</span></div></div>
     <div class="comp-row"><div class="comp-co"><span class="badge badge-adv">Renata</span></div><div class="comp-val">Idem Advanced — jurídico preventivo + engenharia (laudos, ART, inspeção predial). Ambos inclusos.</div><div class="comp-rating"><span class="rating rating-5">Incluso</span></div></div>
     <div class="comp-row"><div class="comp-co"><span class="badge badge-adv-pro">Adv+Pro</span></div><div class="comp-val">Idem Advanced — ambos inclusos.</div><div class="comp-rating"><span class="rating rating-5">Incluso</span></div></div>
   </div>
@@ -1141,8 +968,6 @@
   <div class="comp-item">
     <div class="comp-item-header"><span class="comp-item-label">Tempo de resposta — crítico / não crítico</span></div>
     <div class="comp-row"><div class="comp-co"><span class="badge badge-tech">Tech</span></div><div class="comp-val">Crítico: ~5 min (abertura de chamado). Não crítico: sem prazo definido.</div><div class="comp-rating"><span class="rating rating-4">4/5</span></div></div>
-    <div class="comp-row"><div class="comp-co"><span class="badge badge-sp">SindicSP</span></div><div class="comp-val">Ambos: imediato. Genérico — sem processos definidos.</div><div class="comp-rating"><span class="rating rating-3">3/5</span></div></div>
-    <div class="comp-row"><div class="comp-co"><span class="badge badge-gf">GF</span></div><div class="comp-val">Crítico: imediato. Não crítico: até 24h. Exemplos concretos documentados.</div><div class="comp-rating"><span class="rating rating-5">5/5</span></div></div>
     <div class="comp-row"><div class="comp-co"><span class="badge badge-adv">Renata</span></div><div class="comp-val">Idem Advanced: crítico 15 min, não crítico até 2h úteis. Renata mora no condomínio — presença física imediata sem necessidade de deslocamento.</div><div class="comp-rating"><span class="rating rating-5">Excelente</span></div></div>
     <div class="comp-row"><div class="comp-co"><span class="badge badge-adv-pro">Adv+Pro</span></div><div class="comp-val">Idem Advanced.</div><div class="comp-rating"><span class="rating rating-5">5/5</span></div></div>
   </div>
@@ -1150,18 +975,15 @@
   <div class="comp-item">
     <div class="comp-item-header"><span class="comp-item-label">Comunicação com moradores</span></div>
     <div class="comp-row"><div class="comp-co"><span class="badge badge-tech">Tech</span></div><div class="comp-val">Grupo de WhatsApp (regras, acontecimentos, chamados). Relatório semanal/quinzenal/mensal com chamados, financeiro, advertências.</div><div class="comp-rating"><span class="rating rating-4">4/5</span></div></div>
-    <div class="comp-row"><div class="comp-co"><span class="badge badge-sp">SindicSP</span></div><div class="comp-val">WhatsApp único do síndico para todos condôminos. Sem sistema ou boletim estruturado.</div><div class="comp-rating"><span class="rating rating-2">2/5</span></div></div>
-    <div class="comp-row"><div class="comp-co"><span class="badge badge-gf">GF</span></div><div class="comp-val">E-mail + WhatsApp + boletins periódicos + telas de elevador. Dashboard online atualizado diariamente.</div><div class="comp-rating"><span class="rating rating-5">5/5</span></div></div>
     <div class="comp-row"><div class="comp-co"><span class="badge badge-adv">Renata</span></div><div class="comp-val">Sistema próprio Advanced + WhatsApp + boletins semanais/mensais + Drive compartilhado. Renata como moradora pode reforçar canais informais com os condôminos de forma natural.</div><div class="comp-rating"><span class="rating rating-5">Excelente</span></div></div>
     <div class="comp-row"><div class="comp-co"><span class="badge badge-adv-pro">Adv+Pro</span></div><div class="comp-val">Idem Advanced.</div><div class="comp-rating"><span class="rating rating-5">5/5</span></div></div>
   </div>
 
   <div class="comp-item">
     <div class="comp-item-header"><span class="comp-item-label">Taxa de inadimplência declarada</span></div>
-    <div class="comp-row"><div class="comp-co"><span class="badge badge-gf">GF</span></div><div class="comp-val">1%</div><div class="comp-rating"><span class="rating rating-5">5/5</span></div></div>
     <div class="comp-row"><div class="comp-co"><span class="badge badge-tech">Tech</span></div><div class="comp-val">&lt;2%</div><div class="comp-rating"><span class="rating rating-5">5/5</span></div></div>
-    <div class="comp-row"><div class="comp-co"><span class="badge badge-sp">SindicSP</span></div><div class="comp-val">&lt;5%</div><div class="comp-rating"><span class="rating rating-3">3/5</span></div></div>
     <div class="comp-row"><div class="comp-co"><span class="badge badge-adv">Renata</span></div><div class="comp-val">N/A — não informado</div><div class="comp-rating"><span class="rating rating-3">N/A</span></div></div>
+    <div class="comp-row"><div class="comp-co"><span class="badge badge-adv-pro">Adv+ Pro</span></div><div class="comp-val">N/A — não informado</div><div class="comp-rating"><span class="rating rating-3">N/A</span></div></div>
   </div>
 
 </section>
@@ -1174,8 +996,6 @@
   <div class="cat-header">Período de rampagem</div>
 
   <div class="price-bar">
-    <div class="price-label"><span class="badge badge-gf">GF Consultoria</span><strong style="color:var(--text)">R$ 22.880</strong></div>
-    <div class="price-track"><div class="price-fill" style="width:100%;background:var(--gf)"></div></div>
   </div>
   <div class="price-bar">
     <div class="price-label"><span class="badge badge-adv">Renata Murtinho</span><strong style="color:var(--text)">R$ 18.500</strong></div>
@@ -1190,8 +1010,6 @@
     <div class="price-track"><div class="price-fill" style="width:56.8%;background:var(--tech)"></div></div>
   </div>
   <div class="price-bar">
-    <div class="price-label"><span class="badge badge-sp">SindicaturaSP</span><strong style="color:var(--text)">R$ 8.300</strong></div>
-    <div class="price-track"><div class="price-fill" style="width:36.3%;background:var(--sp)"></div></div>
   </div>
 
   <div class="cat-header">Operação normal</div>
@@ -1201,8 +1019,6 @@
     <div class="price-track"><div class="price-fill" style="width:100%;background:var(--adv)"></div></div>
   </div>
   <div class="price-bar">
-    <div class="price-label"><span class="badge badge-gf">GF Consultoria</span><strong style="color:var(--text)">R$ 16.640</strong></div>
-    <div class="price-track"><div class="price-fill" style="width:89.9%;background:var(--gf)"></div></div>
   </div>
   <div class="price-bar">
     <div class="price-label"><span class="badge badge-adv-pro">Advanced + Pro</span><strong style="color:var(--text)">R$ 14.560</strong></div>
@@ -1213,8 +1029,6 @@
     <div class="price-track"><div class="price-fill" style="width:70.3%;background:var(--tech)"></div></div>
   </div>
   <div class="price-bar">
-    <div class="price-label"><span class="badge badge-sp">SindicaturaSP</span><strong style="color:var(--text)">R$ 8.300</strong></div>
-    <div class="price-track"><div class="price-fill" style="width:44.9%;background:var(--sp)"></div></div>
   </div>
 
   <div class="sep"></div>
@@ -1226,8 +1040,6 @@
       <thead><tr><th>Empresa</th><th>Rampagem</th><th>Normal</th><th>Apólice seguro</th></tr></thead>
       <tbody>
         <tr><td><span class="badge badge-tech">Tech</span></td><td style="font-size:12px">R$ 13.000</td><td style="font-size:12px">R$ 13.000</td><td style="font-size:12px">R$ 1M</td></tr>
-        <tr><td><span class="badge badge-sp">SP</span></td><td style="font-size:12px">R$ 8.300</td><td style="font-size:12px">R$ 8.300</td><td style="font-size:12px">R$ 1M</td></tr>
-        <tr><td><span class="badge badge-gf">GF</span></td><td style="font-size:12px">R$ 22.880</td><td style="font-size:12px">R$ 16.640</td><td style="font-size:12px">R$ 3M</td></tr>
         <tr><td><span class="badge badge-adv">Renata</span></td><td style="font-size:12px">R$ 18.500</td><td style="font-size:12px">R$ 18.500</td><td style="font-size:12px">R$ 5M</td></tr>
         <tr><td><span class="badge badge-adv-pro">Adv+</span></td><td style="font-size:12px">R$ 19.000</td><td style="font-size:12px">R$ 14.560</td><td style="font-size:12px">R$ 5M</td></tr>
       </tbody>
@@ -1237,9 +1049,7 @@
   <div class="card">
     <div class="card-title">Observações sobre preço</div>
     <div style="font-size:12px;color:var(--text-muted);line-height:1.8">
-      <div style="margin-bottom:8px"><span class="badge badge-sp">SindicSP</span> — Preço mais baixo, mas capacidade operacional muito abaixo do necessário. Risco de custo oculto alto (demandas não atendidas, perda de garantias, inadimplência).</div>
       <div style="margin-bottom:8px"><span class="badge badge-tech">Tech</span> — Preço justo para o porte e qualidade oferecida. Porém valor idêntico nos dois períodos sugere pouca flexibilidade.</div>
-      <div style="margin-bottom:8px"><span class="badge badge-gf">GF</span> — Rampagem cara, mas operação normal razoável. Apólice de R$ 3M e experiência premium justificam parte do valor.</div>
       <div style="margin-bottom:8px"><span class="badge badge-adv">Renata</span> — Valor igual nos dois períodos. A estrutura da Advanced (apólice R$ 5M, jurídico + engenharia) está inclusa. Renata como moradora elimina o custo de deslocamento e a curva de aprendizado sobre o condomínio.</div>
       <div><span class="badge badge-adv-pro">Adv + Profissional</span> — Melhor relação custo-benefício potencial: empresa robusta + síndico profissional + preço competitivo na operação normal.</div>
     </div>
@@ -1253,35 +1063,15 @@
   <div class="section-desc">Notas ponderadas por categoria, considerando o perfil do Portugal 587: condomínio novo, complexo, em implantação, multiuso.</div>
 
   <div class="alert alert-blue">
-    <strong>Critérios com maior peso:</strong> experiência em implantações complexas (30%), perfil do síndico (25%), experiência com a Even (15%). Preço tem peso menor — uma má gestão na implantação custa muito mais do que a diferença de mensalidade.
-  </div>
-
-  <!-- GF -->
-  <div class="overall-card gf">
-    <div class="overall-header">
-      <div>
-        <span class="badge badge-gf" style="margin-bottom:6px;display:inline-block">GF Consultoria</span>
-        <div class="overall-name">GF Consultoria</div>
-        <div style="font-size:11px;color:var(--text-muted)">Empresa + Síndico profissional (sócio)</div>
-      </div>
-      <div style="text-align:right">
-        <div class="overall-score" style="color:var(--gf)">8,1</div>
-        <div class="overall-score-label">nota geral /10</div>
-      </div>
+    <strong>Critérios e pesos:</strong>
+    <div style="margin-top:6px;line-height:2">
+      <div>Entrevistas GT + feedback de clientes — <strong>25%</strong></div>
+      <div>Experiência em implantações complexas — <strong>25%</strong></div>
+      <div>Perfil do síndico — <strong>20%</strong></div>
+      <div>Experiência com a Even — <strong>15%</strong></div>
+      <div>Modelo operacional — <strong>10%</strong></div>
+      <div>Preço — <strong>5%</strong></div>
     </div>
-    <div class="mini-bar">
-      <div class="mini-seg" style="background:var(--gf);flex:5" title="Empresa 5/5"></div>
-      <div class="mini-seg" style="background:var(--gf);flex:5" title="Síndico 5/5"></div>
-      <div class="mini-seg" style="background:var(--gf);flex:5" title="Implantação 5/5"></div>
-      <div class="mini-seg" style="background:#22C55E88;flex:4" title="Operação 4/5"></div>
-      <div class="mini-seg" style="background:#22C55E55;flex:3" title="Preço 3/5"></div>
-    </div>
-    <div style="font-size:10px;color:var(--text-dim);margin-top:4px">Empresa · Síndico · Implantação · Operação · Preço</div>
-    <div class="overall-pros-cons">
-      <div class="pros"><strong>✓ Pontos fortes</strong>Maior experiência geral<br>56 implantações c/ Even<br>Equipe dedicada (sócio + 4)<br>Metodologia mais estruturada<br>Dashboard diário<br>Jurídico + engenharia inclusos</div>
-      <div class="cons"><strong>✗ Pontos fracos</strong>Preço alto na rampagem (R$ 22.880)<br>Backoffice é PJ, atende outros 5 cond.<br>SLA "100%" parece exagerado<br>Proposta genérica em alguns pontos</div>
-    </div>
-    <div class="verdict">Maior track record geral da seleção: 96 condomínios na carteira, 56 implantações com grandes construtoras e sócio como síndico desde 2005. Metodologia de imersão 360° com Plano Diretor validado pelo Conselho. Jurídico e engenharia inclusos. Rampagem é a mais cara da seleção; operação normal cai para R$ 16.640.</div>
   </div>
 
   <!-- Advanced Pro -->
@@ -1304,12 +1094,12 @@
       <div class="mini-seg" style="background:#3B82F688;flex:4" title="Operação 4/5"></div>
       <div class="mini-seg" style="background:#3B82F666;flex:4" title="Preço 4/5"></div>
     </div>
-    <div style="font-size:10px;color:var(--text-dim);margin-top:4px">Empresa · Síndico · Implantação · Operação · Preço</div>
+    <div style="font-size:10px;color:var(--text-dim);margin-top:4px">Empresa · Síndico · Implantação · Operação · GT</div>
     <div class="overall-pros-cons">
-      <div class="pros"><strong>✓ Pontos fortes</strong>53 implantações complexas<br>Maior valor recuperado (R$ 15M)<br>Melhor apólice (R$ 5M)<br>Sistema próprio Advanced<br>Jurídico + engenharia inclusos<br>Preço competitivo na oper. normal</div>
-      <div class="cons"><strong>✗ Pontos fracos</strong>SLA declarado de 75% (mais baixo)<br>Exp. c/ Even menos detalhada<br>Perfil do síndico a confirmar<br>Valores do síndico não declarados</div>
+      <div class="pros"><strong>✓ Pontos fortes</strong>53 implantações complexas<br>Maior valor recuperado (R$ 15M)<br>Melhor apólice (R$ 5M)<br>Sistema próprio Advanced<br>Jurídico + engenharia inclusos<br>Boa avaliação nas entrevistas<br>Bom feedback de clientes</div>
+      <div class="cons"><strong>✗ Pontos fracos</strong>SLA declarado de 75% (mais baixo)<br>Exp. c/ Even menos detalhada<br>Perfil do síndico a confirmar</div>
     </div>
-    <div class="verdict">Combina a robustez da empresa Advanced (53 implantações, R$ 15M recuperados, apólice de R$ 5M, sistema próprio) com um síndico profissional. O preço na operação normal é o segundo mais competitivo. Ponto de atenção: SLA de 75% e perfil do síndico a ser confirmado junto à empresa.</div>
+    <div class="verdict">Combina a robustez da empresa Advanced (53 implantações, R$ 15M recuperados, apólice de R$ 5M, sistema próprio) com um síndico profissional. Obteve boa avaliação do GT e bom feedback de clientes. Preço competitivo na operação normal. Ponto de atenção: SLA de 75% e perfil do síndico a ser confirmado junto à empresa.</div>
   </div>
 
   <!-- Tech -->
@@ -1332,12 +1122,12 @@
       <div class="mini-seg" style="background:#0EA5E966;flex:3" title="Operação 3/5"></div>
       <div class="mini-seg" style="background:var(--tech);flex:4" title="Preço 4/5"></div>
     </div>
-    <div style="font-size:10px;color:var(--text-dim);margin-top:4px">Empresa · Síndico · Exp.Even · Operação · Preço</div>
+    <div style="font-size:10px;color:var(--text-dim);margin-top:4px">Empresa · Síndico · Implantação · Operação · GT</div>
     <div class="overall-pros-cons">
-      <div class="pros"><strong>✓ Pontos fortes</strong>Melhor histórico c/ Even (Modo, RED)<br>Contato direto c/ diretoria Even<br>Síndica sócia = comprometimento alto<br>Preço competitivo<br>Casos reais bem documentados</div>
-      <div class="cons"><strong>✗ Pontos fracos</strong>Empresa jovem (2020), 12 cond. apenas<br>8–12h/sem rampagem é muito pouco<br>Jurídico/engenharia não inclusos<br>Apólice fraca (R$ 1M)<br>1 síndica para 12 condomínios</div>
+      <div class="pros"><strong>✓ Pontos fortes</strong>Melhor histórico c/ Even (Modo, RED)<br>Contato direto c/ diretoria Even<br>Síndica sócia = comprometimento alto<br>Ótima avaliação nas entrevistas<br>Bom feedback de clientes<br>Preço mais competitivo</div>
+      <div class="cons"><strong>✗ Pontos fracos</strong>Empresa jovem (2020), 12 cond. apenas<br>8–12h/sem rampagem é abaixo das demais<br>Jurídico/engenharia não inclusos<br>Apólice menor (R$ 1M)</div>
     </div>
-    <div class="verdict">Empresa mais jovem da seleção (CNPJ 2020), mas síndica com 8 anos de atuação. Destaque pelo relacionamento direto com a diretoria de AT da Even — casos concretos com Modo Ipiranga, RED e Arte Vila Mariana. Dedicação de 8–12h/semana na rampagem está abaixo das demais propostas. Jurídico e engenharia não estão inclusos no pacote.</div>
+    <div class="verdict">Destaque pela ótima avaliação do GT e pelo relacionamento direto com a diretoria de AT da Even — casos concretos com Modo Ipiranga, RED e Arte Vila Mariana. Síndica com 8 anos de atuação e alto comprometimento como sócia. Dedicação de 8–12h/semana na rampagem está abaixo das demais propostas. Jurídico e engenharia não estão inclusos no pacote.</div>
   </div>
 
   <!-- Advanced Renata -->
@@ -1360,53 +1150,81 @@
       <div class="mini-seg" style="background:#EA580C88;flex:4" title="Operação 4/5"></div>
       <div class="mini-seg" style="background:#EA580C33;flex:2" title="Preço 2/5"></div>
     </div>
-    <div style="font-size:10px;color:var(--text-dim);margin-top:4px">Empresa · Síndico · Implantação · Operação · Preço</div>
+    <div style="font-size:10px;color:var(--text-dim);margin-top:4px">Empresa · Síndico · Implantação · Operação · GT</div>
     <div class="overall-pros-cons">
-      <div class="pros"><strong>✓ Pontos fortes</strong>Mora no cond. — conhece os problemas<br>Atuando junto à gestão desde o início<br>Empresa Advanced: 53 implantações<br>Maior valor recuperado (R$ 15M)<br>Melhor apólice (R$ 5M)<br>Dedicação exclusiva no 1º ano<br>Sistema e metodologia avançados</div>
-      <div class="cons"><strong>✗ Pontos fracos</strong>Sem experiência prévia como síndica<br>SLA Advanced de 75% (mais baixo)<br>Dependência total da Advanced p/ técnico<br>Potencial conflito de interesses<br>Preço elevado vs. capacidade individual</div>
+      <div class="pros"><strong>✓ Pontos fortes</strong>Mora no cond. — conhece os problemas<br>Atuando junto à gestão desde o início<br>Empresa Advanced: 53 implantações<br>Maior valor recuperado (R$ 15M)<br>Melhor apólice (R$ 5M)<br>Dedicação exclusiva no 1º ano<br>Boa avaliação nas entrevistas</div>
+      <div class="cons"><strong>✗ Pontos fracos</strong>Sem experiência prévia como síndica<br>SLA Advanced de 75% (mais baixo)<br>Feedback de clientes não disponível<br>Dependência total da Advanced p/ técnico</div>
     </div>
-    <div class="verdict">Renata é moradora do condomínio e vem acompanhando os problemas da gestão desde o início — conhecimento contextual que diferencia esta proposta das demais. A estrutura operacional e técnica seria provida pela Advanced (53 implantações, R$ 15M recuperados, apólice R$ 5M). O ponto de atenção central é a ausência de experiência prévia como síndica profissional, que aumenta a dependência do suporte da empresa para decisões técnicas e de crise.</div>
+    <div class="verdict">Renata é moradora do condomínio e vem acompanhando os problemas da gestão desde o início — conhecimento contextual que diferencia esta proposta das demais. A estrutura operacional e técnica seria provida pela Advanced (53 implantações, R$ 15M recuperados, apólice R$ 5M). Obteve boa avaliação do GT. Ponto de atenção: ausência de experiência prévia como síndica profissional e feedback de clientes não disponível.</div>
   </div>
-
-  <!-- SindicaturaSP -->
-  <div class="overall-card sp">
-    <div class="overall-header">
-      <div>
-        <span class="badge badge-sp" style="margin-bottom:6px;display:inline-block">SindicaturaSP</span>
-        <div class="overall-name">SindicaturaSP</div>
-        <div style="font-size:11px;color:var(--text-muted)">Empresa + Síndico profissional (PJ)</div>
-      </div>
-      <div style="text-align:right">
-        <div class="overall-score" style="color:var(--sp)">5,2</div>
-        <div class="overall-score-label">nota geral /10</div>
-      </div>
-    </div>
-    <div class="mini-bar">
-      <div class="mini-seg" style="background:#8B5CF633;flex:2" title="Empresa 2/5"></div>
-      <div class="mini-seg" style="background:#8B5CF666;flex:3" title="Síndico 3/5"></div>
-      <div class="mini-seg" style="background:#8B5CF633;flex:2" title="Implantação 2/5"></div>
-      <div class="mini-seg" style="background:#8B5CF633;flex:2" title="Operação 2/5"></div>
-      <div class="mini-seg" style="background:var(--sp);flex:5" title="Preço 5/5"></div>
-    </div>
-    <div style="font-size:10px;color:var(--text-dim);margin-top:4px">Empresa · Síndico · Implantação · Operação · Preço</div>
-    <div class="overall-pros-cons">
-      <div class="pros"><strong>✓ Pontos fortes</strong>Preço mais baixo (R$ 8.300)<br>Alta dedicação declarada (40h/sem)<br>Jurídico + engenharia inclusos<br>Síndico com 15 anos de experiência</div>
-      <div class="cons"><strong>✗ Pontos fracos</strong>Empresa muito pequena (4 cond.)<br>2 implantações complexas apenas<br>Zero exp. com Even em implantação<br>Backoffice de 2 pessoas<br>Sem funcionário exclusivo<br>Inconsistências na proposta</div>
-    </div>
-    <div class="verdict">Empresa mais recente da seleção (2022), com carteira de apenas 4 condomínios e 2 implantações complexas registradas. Suporte jurídico, de engenharia e auditor estão inclusos no pacote. Dedicação declarada de 40h/semana na rampagem é a mais alta. Sem experiência registrada em implantação com a Even. Preço mais baixo da seleção.</div>
-  </div>
-
   <!-- Ranking final -->
   <div class="cat-header">Ranking por nota geral</div>
   <div class="card">
     <div style="font-size:13px;line-height:2.2">
-      <div><span style="color:var(--gf);font-weight:800">🥇 GF Consultoria — 8,1</span></div>
-      <div><span style="color:var(--adv-pro);font-weight:800">🥈 Advanced + Síndico Profissional — 7,9</span></div>
-      <div><span style="color:var(--tech);font-weight:800">🥉 Tech Sindicatura — 6,8</span></div>
-      <div><span style="color:var(--adv);font-weight:700">4. Renata Murtinho — 5,8</span></div>
-      <div><span style="color:var(--sp);font-weight:700">5. SindicaturaSP — 5,2</span></div>
+      <div><span style="color:var(--adv-pro);font-weight:800">🥇 Advanced + Síndico Profissional — 7,9</span></div>
+      <div><span style="color:var(--tech);font-weight:800">🥈 Tech Sindicatura — 7,2</span></div>
+      <div><span style="color:var(--adv);font-weight:700">🥉 Renata Murtinho — 6,2</span></div>
     </div>
-    <div style="font-size:11px;color:var(--text-dim);margin-top:10px;line-height:1.7">Nota ponderada: experiência em implantações complexas (30%), perfil do síndico (25%), experiência com a Even (15%), modelo operacional (20%), preço (10%).</div>
+    <div style="font-size:11px;color:var(--text-dim);margin-top:10px;line-height:1.7">GF Consultoria e SindicaturaSP foram desclassificadas pelo GT — <span style="text-decoration:underline;cursor:pointer;color:var(--primary-light)" onclick="switchTab('desclassificadas')">ver detalhes</span>.</div>
+  </div>
+
+</section>
+
+<!-- ===================== DESCLASSIFICADAS ===================== -->
+<section id="desclassificadas">
+  <div class="section-title">Propostas Desclassificadas</div>
+  <div class="section-desc">Após entrevistas e coleta de feedback de clientes pelo Grupo de Trabalho, duas propostas foram desclassificadas antes da fase final de avaliação.</div>
+
+  <div class="alert alert-blue">
+    <strong>Processo:</strong> o GT realizou entrevistas presenciais com representantes de todas as empresas candidatas e coletou depoimentos de moradores e conselheiros de condomínios atendidos pelas empresas. O resultado desse processo foi determinante para a desclassificação das duas propostas abaixo.
+  </div>
+
+  <!-- GF -->
+  <div class="acc-item open">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="badge badge-gf">GF Consultoria</span>
+        <span class="acc-title">Desclassificada pelo GT</span>
+      </div>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="acc-body">
+      <table class="detail-table">
+        <tr><td>Nota nas propostas</td><td>8,1 / 10 — maior nota técnica da seleção original</td></tr>
+        <tr><td>Fundação</td><td>2005 — empresa mais experiente da seleção</td></tr>
+        <tr><td>Carteira</td><td>96 condomínios</td></tr>
+        <tr><td>Implantações complexas</td><td>26 implantações / 56 totais com grandes construtoras</td></tr>
+        <tr><td>Valor recuperado (5 anos)</td><td>R$ 5 milhões</td></tr>
+        <tr><td>Motivo da desclassificação</td><td>Avaliação do GT após entrevistas e feedback de clientes.</td></tr>
+      </table>
+      <div class="alert alert-yellow" style="margin-top:12px;margin-bottom:0">
+        Apesar do sólido histórico técnico, o GT identificou pontos que comprometeram a candidatura na avaliação qualitativa. Os detalhes do processo são de conhecimento do GT.
+      </div>
+    </div>
+  </div>
+
+  <!-- SP -->
+  <div class="acc-item">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="badge badge-sp">SindicaturaSP</span>
+        <span class="acc-title">Desclassificada pelo GT</span>
+      </div>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="acc-body">
+      <table class="detail-table">
+        <tr><td>Nota nas propostas</td><td>5,2 / 10 — menor nota técnica da seleção original</td></tr>
+        <tr><td>Fundação</td><td>2022 — empresa mais recente da seleção</td></tr>
+        <tr><td>Carteira</td><td>4 condomínios</td></tr>
+        <tr><td>Implantações complexas</td><td>2 implantações / 330 unidades</td></tr>
+        <tr><td>Preço</td><td>R$ 8.300 / mês — menor da seleção</td></tr>
+        <tr><td>Motivo da desclassificação</td><td>Avaliação do GT após entrevistas e feedback de clientes.</td></tr>
+      </table>
+      <div class="alert alert-yellow" style="margin-top:12px;margin-bottom:0">
+        A proposta já apresentava a menor nota técnica da seleção, combinada com capacidade operacional limitada para um condomínio deste porte. A avaliação do GT confirmou a desclassificação.
+      </div>
+    </div>
   </div>
 
 </section>
